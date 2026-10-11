@@ -10,33 +10,205 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppRouteImport } from './routes/app'
+import { Route as AppIndexRouteImport } from './routes/app.index'
+import { Route as AppActivityRouteImport } from './routes/app.activity'
+import { Route as AppHomeRouteImport } from './routes/app.home'
+import { Route as AppLoginRouteImport } from './routes/app.login'
+import { Route as AppNotificationsRouteImport } from './routes/app.notifications'
+import { Route as AppProfileRouteImport } from './routes/app.profile'
+import { Route as AppShipperLoadTypeRouteImport } from './routes/app.shipper.load-type'
+import { Route as AppTrackTripIdRouteImport } from './routes/app.track.$tripId'
+import { Route as AppTransporterOffersRouteImport } from './routes/app.transporter.offers'
+import { Route as AppTransporterTypeRouteImport } from './routes/app.transporter.type'
+import { Route as AppTripsTripIdRouteImport } from './routes/app.trips.$tripId'
+import { Route as AppShipperNewStepRouteImport } from './routes/app.shipper.new.$step'
+import { Route as AppTransporterAvailabilityModeRouteImport } from './routes/app.transporter.availability.$mode'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppRoute = AppRouteImport.update({
+  id: '/app',
+  path: '/app',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppIndexRoute = AppIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppActivityRoute = AppActivityRouteImport.update({
+  id: '/activity',
+  path: '/activity',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppHomeRoute = AppHomeRouteImport.update({
+  id: '/home',
+  path: '/home',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppLoginRoute = AppLoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppNotificationsRoute = AppNotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppProfileRoute = AppProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppShipperLoadTypeRoute = AppShipperLoadTypeRouteImport.update({
+  id: '/shipper/load-type',
+  path: '/shipper/load-type',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppTrackTripIdRoute = AppTrackTripIdRouteImport.update({
+  id: '/track/$tripId',
+  path: '/track/$tripId',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppTransporterOffersRoute = AppTransporterOffersRouteImport.update({
+  id: '/transporter/offers',
+  path: '/transporter/offers',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppTransporterTypeRoute = AppTransporterTypeRouteImport.update({
+  id: '/transporter/type',
+  path: '/transporter/type',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppTripsTripIdRoute = AppTripsTripIdRouteImport.update({
+  id: '/trips/$tripId',
+  path: '/trips/$tripId',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppShipperNewStepRoute = AppShipperNewStepRouteImport.update({
+  id: '/shipper/new/$step',
+  path: '/shipper/new/$step',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppTransporterAvailabilityModeRoute =
+  AppTransporterAvailabilityModeRouteImport.update({
+    id: '/transporter/availability/$mode',
+    path: '/transporter/availability/$mode',
+    getParentRoute: () => AppRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/app/activity': typeof AppActivityRoute
+  '/app/home': typeof AppHomeRoute
+  '/app/login': typeof AppLoginRoute
+  '/app/notifications': typeof AppNotificationsRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/': typeof AppIndexRoute
+  '/app/shipper/load-type': typeof AppShipperLoadTypeRoute
+  '/app/track/$tripId': typeof AppTrackTripIdRoute
+  '/app/transporter/offers': typeof AppTransporterOffersRoute
+  '/app/transporter/type': typeof AppTransporterTypeRoute
+  '/app/trips/$tripId': typeof AppTripsTripIdRoute
+  '/app/shipper/new/$step': typeof AppShipperNewStepRoute
+  '/app/transporter/availability/$mode': typeof AppTransporterAvailabilityModeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/app/activity': typeof AppActivityRoute
+  '/app/home': typeof AppHomeRoute
+  '/app/login': typeof AppLoginRoute
+  '/app/notifications': typeof AppNotificationsRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app': typeof AppIndexRoute
+  '/app/shipper/load-type': typeof AppShipperLoadTypeRoute
+  '/app/track/$tripId': typeof AppTrackTripIdRoute
+  '/app/transporter/offers': typeof AppTransporterOffersRoute
+  '/app/transporter/type': typeof AppTransporterTypeRoute
+  '/app/trips/$tripId': typeof AppTripsTripIdRoute
+  '/app/shipper/new/$step': typeof AppShipperNewStepRoute
+  '/app/transporter/availability/$mode': typeof AppTransporterAvailabilityModeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/app/activity': typeof AppActivityRoute
+  '/app/home': typeof AppHomeRoute
+  '/app/login': typeof AppLoginRoute
+  '/app/notifications': typeof AppNotificationsRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/': typeof AppIndexRoute
+  '/app/shipper/load-type': typeof AppShipperLoadTypeRoute
+  '/app/track/$tripId': typeof AppTrackTripIdRoute
+  '/app/transporter/offers': typeof AppTransporterOffersRoute
+  '/app/transporter/type': typeof AppTransporterTypeRoute
+  '/app/trips/$tripId': typeof AppTripsTripIdRoute
+  '/app/shipper/new/$step': typeof AppShipperNewStepRoute
+  '/app/transporter/availability/$mode': typeof AppTransporterAvailabilityModeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/app'
+    | '/app/activity'
+    | '/app/home'
+    | '/app/login'
+    | '/app/notifications'
+    | '/app/profile'
+    | '/app/'
+    | '/app/shipper/load-type'
+    | '/app/track/$tripId'
+    | '/app/transporter/offers'
+    | '/app/transporter/type'
+    | '/app/trips/$tripId'
+    | '/app/shipper/new/$step'
+    | '/app/transporter/availability/$mode'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/app/activity'
+    | '/app/home'
+    | '/app/login'
+    | '/app/notifications'
+    | '/app/profile'
+    | '/app'
+    | '/app/shipper/load-type'
+    | '/app/track/$tripId'
+    | '/app/transporter/offers'
+    | '/app/transporter/type'
+    | '/app/trips/$tripId'
+    | '/app/shipper/new/$step'
+    | '/app/transporter/availability/$mode'
+  id:
+    | '__root__'
+    | '/'
+    | '/app'
+    | '/app/activity'
+    | '/app/home'
+    | '/app/login'
+    | '/app/notifications'
+    | '/app/profile'
+    | '/app/'
+    | '/app/shipper/load-type'
+    | '/app/track/$tripId'
+    | '/app/transporter/offers'
+    | '/app/transporter/type'
+    | '/app/trips/$tripId'
+    | '/app/shipper/new/$step'
+    | '/app/transporter/availability/$mode'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppRoute: typeof AppRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +220,144 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app': {
+      id: '/app'
+      path: '/app'
+      fullPath: '/app'
+      preLoaderRoute: typeof AppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/': {
+      id: '/app/'
+      path: '/'
+      fullPath: '/app/'
+      preLoaderRoute: typeof AppIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/activity': {
+      id: '/app/activity'
+      path: '/activity'
+      fullPath: '/app/activity'
+      preLoaderRoute: typeof AppActivityRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/home': {
+      id: '/app/home'
+      path: '/home'
+      fullPath: '/app/home'
+      preLoaderRoute: typeof AppHomeRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/login': {
+      id: '/app/login'
+      path: '/login'
+      fullPath: '/app/login'
+      preLoaderRoute: typeof AppLoginRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/notifications': {
+      id: '/app/notifications'
+      path: '/notifications'
+      fullPath: '/app/notifications'
+      preLoaderRoute: typeof AppNotificationsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/profile': {
+      id: '/app/profile'
+      path: '/profile'
+      fullPath: '/app/profile'
+      preLoaderRoute: typeof AppProfileRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/shipper/load-type': {
+      id: '/app/shipper/load-type'
+      path: '/shipper/load-type'
+      fullPath: '/app/shipper/load-type'
+      preLoaderRoute: typeof AppShipperLoadTypeRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/track/$tripId': {
+      id: '/app/track/$tripId'
+      path: '/track/$tripId'
+      fullPath: '/app/track/$tripId'
+      preLoaderRoute: typeof AppTrackTripIdRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/transporter/offers': {
+      id: '/app/transporter/offers'
+      path: '/transporter/offers'
+      fullPath: '/app/transporter/offers'
+      preLoaderRoute: typeof AppTransporterOffersRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/transporter/type': {
+      id: '/app/transporter/type'
+      path: '/transporter/type'
+      fullPath: '/app/transporter/type'
+      preLoaderRoute: typeof AppTransporterTypeRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/trips/$tripId': {
+      id: '/app/trips/$tripId'
+      path: '/trips/$tripId'
+      fullPath: '/app/trips/$tripId'
+      preLoaderRoute: typeof AppTripsTripIdRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/shipper/new/$step': {
+      id: '/app/shipper/new/$step'
+      path: '/shipper/new/$step'
+      fullPath: '/app/shipper/new/$step'
+      preLoaderRoute: typeof AppShipperNewStepRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/transporter/availability/$mode': {
+      id: '/app/transporter/availability/$mode'
+      path: '/transporter/availability/$mode'
+      fullPath: '/app/transporter/availability/$mode'
+      preLoaderRoute: typeof AppTransporterAvailabilityModeRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
+interface AppRouteChildren {
+  AppActivityRoute: typeof AppActivityRoute
+  AppHomeRoute: typeof AppHomeRoute
+  AppLoginRoute: typeof AppLoginRoute
+  AppNotificationsRoute: typeof AppNotificationsRoute
+  AppProfileRoute: typeof AppProfileRoute
+  AppIndexRoute: typeof AppIndexRoute
+  AppShipperLoadTypeRoute: typeof AppShipperLoadTypeRoute
+  AppTrackTripIdRoute: typeof AppTrackTripIdRoute
+  AppTransporterOffersRoute: typeof AppTransporterOffersRoute
+  AppTransporterTypeRoute: typeof AppTransporterTypeRoute
+  AppTripsTripIdRoute: typeof AppTripsTripIdRoute
+  AppShipperNewStepRoute: typeof AppShipperNewStepRoute
+  AppTransporterAvailabilityModeRoute: typeof AppTransporterAvailabilityModeRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppActivityRoute: AppActivityRoute,
+  AppHomeRoute: AppHomeRoute,
+  AppLoginRoute: AppLoginRoute,
+  AppNotificationsRoute: AppNotificationsRoute,
+  AppProfileRoute: AppProfileRoute,
+  AppIndexRoute: AppIndexRoute,
+  AppShipperLoadTypeRoute: AppShipperLoadTypeRoute,
+  AppTrackTripIdRoute: AppTrackTripIdRoute,
+  AppTransporterOffersRoute: AppTransporterOffersRoute,
+  AppTransporterTypeRoute: AppTransporterTypeRoute,
+  AppTripsTripIdRoute: AppTripsTripIdRoute,
+  AppShipperNewStepRoute: AppShipperNewStepRoute,
+  AppTransporterAvailabilityModeRoute: AppTransporterAvailabilityModeRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppRoute: AppRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -1,15 +1,5 @@
-<!-- LOVABLE:BEGIN -->
-> [!IMPORTANT]
-> This project is connected to [Lovable](https://lovable.dev). Avoid rewriting
-> published git history — force pushing, or rebasing/amending/squashing commits
-> that are already pushed — as it rewrites history on Lovable's side and the
-> user will likely lose their project history.
->
-> Commits you push to the connected branch sync back to Lovable and show up in
-> the editor, so keep the branch in a working state.
-<!-- LOVABLE:END -->
-
 ## Architecture
-- Keep TruckSaathi as a single landing route with focused presentation modules and shared bilingual JSON copy so sections stay consistent in both languages.
-- Keep theme roles and all presentation styling in src/styles.css so the landing page can be rethemed centrally.
-- Keep calculator assumptions in the interactive module and demo submissions ephemeral, with no network or storage writes, because this is a landing-page-only prototype.
+- Keep the public landing page at `/` and the bilingual booking platform under `/app`.
+- Keep theme roles in `src/styles.css` and app-specific layout rules in `src/styles/app.css`.
+- Keep matching, distance, pricing and impact calculations in `src/lib/matching.ts`; keep demo data in `src/data` and API persistence in `src/api`.
+- External integrations are mocked; local demo records use SQLite and can be reset with the seed command after removing the database file.
