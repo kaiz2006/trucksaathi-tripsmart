@@ -8,3 +8,8 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Architecture
+- Keep TruckSaathi as a single landing route with focused presentation modules and shared bilingual JSON copy so sections stay consistent in both languages.
+- Keep theme roles and all presentation styling in src/styles.css so the landing page can be rethemed centrally.
+- Keep calculator assumptions in the interactive module and demo submissions ephemeral, with no network or storage writes, because this is a landing-page-only prototype.
