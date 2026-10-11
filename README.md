@@ -1,29 +1,26 @@
-# Welcome to your Lovable project
+# TruckSaathi
 
-This project was built with [Lovable](https://lovable.dev).
+A bilingual, single-page landing experience for an Indian full-journey truck matching platform.
 
-## Build with Lovable
-
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+## Local development
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+bun install
+bun run dev
 ```
 
-## Built with
+The Vite development server prints its local address. Available commands: `bun run test`, `bun run lint`, and `bun run build` for deployment builds.
 
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+## Editing the landing page
+
+- Theme colors, fonts, spacing and motion: `src/styles.css`.
+- English and Hindi copy: `src/data/landing-copy.json`.
+- Page composition: `src/routes/index.tsx`.
+- Focused sections and interactions: `src/components/trucksaathi/`.
+- Calculator constants: `CALCULATOR` in `interactive.tsx`. Saved empty km = trucks × trips per truck × 600 km × empty share × 60% recovery. Gross additional revenue = saved km × ₹35/km. Costs and ₹1,500 matching fees are excluded.
+
+## Prototype boundaries
+
+This is a landing page only. Demo-form submissions never leave the browser and are not stored. No fleet platform or backend is implemented. Industry statistics and comparative commission figures are illustrative pending sourcing. The fleet-owner quotation is a fictional persona, explicitly labeled on the page. Contact email and operational route coverage require real business details before launch. Journey metrics are sample data, not a live match.
+
+All illustrations are inline SVG, without external image dependencies. Typography loads from Google Fonts with local system fallbacks. Navigation, calculator, language toggle, FAQ and demo form are keyboard accessible; animation respects reduced-motion preferences.
