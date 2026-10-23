@@ -1,7 +1,11 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 import { appCopy, type AppLanguage } from "@/data/app-copy";
 
-type LanguageContextValue = { language: AppLanguage; setLanguage: (language: AppLanguage) => void; t: (typeof appCopy)[AppLanguage] };
+type LanguageContextValue = {
+  language: AppLanguage;
+  setLanguage: (language: AppLanguage) => void;
+  t: (typeof appCopy)[AppLanguage];
+};
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
 export function AppLanguageProvider({ children }: { children: ReactNode }) {
@@ -21,7 +25,11 @@ export function AppLanguageProvider({ children }: { children: ReactNode }) {
     setLanguageState(next);
   }
 
-  return <LanguageContext.Provider value={{ language, setLanguage, t: appCopy[language] }}>{children}</LanguageContext.Provider>;
+  return (
+    <LanguageContext.Provider value={{ language, setLanguage, t: appCopy[language] }}>
+      {children}
+    </LanguageContext.Provider>
+  );
 }
 
 export function useAppLanguage() {

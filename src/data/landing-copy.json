@@ -1,31 +1,350 @@
 {
   "en": {
     "nav": ["How it works", "Features", "Pricing", "FAQ"],
-    "demo": "Request a demo", "seeHow": "See how it works", "eyebrow": "MORE LOADED KILOMETRES. MORE PROFIT.",
-    "headline": "Never drive home", "headlineAccent": "empty again.",
+    "demo": "Request a demo",
+    "seeHow": "See how it works",
+    "eyebrow": "MORE LOADED KILOMETRES. MORE PROFIT.",
+    "headline": "Never drive home",
+    "headlineAccent": "empty again.",
     "subhead": "TruckSaathi plans your truck’s full journey, outbound and return, so every kilometre earns.",
-    "trust": "Built for fleet owners with 5–20 trucks", "trustTag": "YOUR TRUCK. YOUR ROUTE. YOUR SAATHI.",
-    "journey": "Your next journey", "optimized": "OPTIMIZED", "ludhiana": "Ludhiana", "delhi": "Delhi", "chandigarh": "Chandigarh", "jaipur": "Jaipur", "ambala": "Ambala", "outbound": "OUTBOUND · LOADED", "return": "RETURN · LOADED", "tomorrow": "Tomorrow, 6:00 AM", "journeyKm": "620 km round trip", "loaded": "Loaded kilometres", "utilization": "Utilization", "extra": "Extra earnings", "matched": "Return load matched before departure", "mapLabel": "A SMARTER WAY HOME", "north": "NORTH INDIA · ILLUSTRATIVE ROUTE", "live": "JOURNEY INTELLIGENCE",
-    "problemLabel": "THE EMPTY-RETURN PROBLEM", "problemTitle": "An empty truck still costs you.", "stats": [{"value": "40", "suffix": "%", "label": "kilometres run empty"}, {"value": "₹25", "suffix": "k", "label": "potential income left behind / month"}, {"value": "1", "suffix": " in 3", "label": "return trips without a load"}], "statsNote": "Illustrative industry estimates · figures pending verification", "problemLine": "Most trucks plan each load alone.", "problemAccent": "We plan the whole journey.",
-    "howLabel": "A BETTER JOURNEY IN THREE STEPS", "howTitle": "Plan once. Earn both ways.", "howIntro": "Less searching. Less waiting. A return load that’s ready when you are.", "steps": [{"title": "Add your truck and route", "body": "Tell us your truck type, starting point and destination. We take it from there."}, {"title": "Get your full-journey plan", "body": "See outbound and return loads together, with a clear profit view before you leave."}, {"title": "Confirm. Load. Earn.", "body": "Confirm on WhatsApp and keep your truck earning all the way home."}],
-    "compareLabel": "NOT ANOTHER LOAD BOARD", "compareTitle": "A load gets you there.\nA journey gets you home.", "typical": "Typical load board", "comparisonBrand": "With TruckSaathi", "comparison": [["Load-by-load matching", "Full multi-leg journey planning"], ["Search after you unload", "Return loads pre-matched"], ["15–20% commission*", "₹1,500 flat per successful match"], ["Another complex app", "Simple, WhatsApp-first experience"]], "compareNote": "*Illustrative comparison; provider charges vary.",
-    "featuresLabel": "BUILT FOR THE WAY YOU WORK", "featuresTitle": "Big-fleet intelligence.\nSmall-fleet simplicity.", "features": [{"title": "Full-journey matching", "body": "Outbound, return and every leg in between. One plan, not a pile of listings."}, {"title": "Your profit, before and after", "body": "See the difference a return load makes before your truck leaves the yard."}, {"title": "Updates on WhatsApp", "body": "The right load, at the right time, in the app you already use."}, {"title": "Verified shipping partners", "body": "Shipper checks and trust ratings put confidence behind every match."}, {"title": "A clearer view of your fleet", "body": "Know which trucks are working, where they’re headed and what they’re earning."}, {"title": "Hindi or English. Your choice.", "body": "Work in the language that feels natural to you and your team."}],
-    "calcLabel": "PUT YOUR EMPTY KILOMETRES TO WORK", "calcTitle": "What could your fleet\nearn on the way home?", "calcIntro": "A few details. A clearer picture of the opportunity.", "trucks": "Number of trucks", "trips": "Trips per truck / month", "empty": "Average empty-return share", "monthly": "Estimated extra revenue / month", "saved": "Empty kilometres saved", "yearly": "Potential extra revenue / year", "calcNote": "Illustrative estimate, not a guarantee. Assumes 600 km per trip, ₹35/km return revenue and recovery of 60% of empty kilometres. Gross revenue before costs and matching fees.", "calcCta": "Let’s plan your first journey", "perMonth": "/ month",
-    "pricingLabel": "FAIR. FLAT. NO SURPRISES.", "pricingTitle": "You earn more.\nWe keep it simple.", "match": "per successful match", "priceLine": "No monthly fee. No commission.", "includes": ["Full-journey load matching", "Verified shipper connections", "WhatsApp alerts & support", "Clear before-and-after profit view"], "pricingFoot": "Pay for a successful match. Not for searching.",
-    "personaLabel": "THE FLEET OWNER WE’RE BUILDING FOR", "quote": "“My truck earns on the way to Delhi. Why shouldn’t it earn on the way back?”", "person": "Ramesh Kumar", "personDetail": "Fleet owner · Ludhiana · 10 trucks", "personaNote": "Illustrative fleet-owner persona, not a real testimonial.",
-    "faqLabel": "GOOD QUESTIONS. STRAIGHT ANSWERS.", "faqTitle": "Before we hit the road.", "faqs": [{"q": "How is this different from BlackBuck?", "a": "TruckSaathi focuses on your complete journey, rather than an individual load listing. The aim is to match your return load before you leave and show the opportunity across all legs. Other providers’ offerings may vary."}, {"q": "How do I trust the shippers?", "a": "Verified shipper connections and trust ratings are part of the TruckSaathi offering. Ask us in your demo how shipper checks, payment terms and dispute support will work for your routes."}, {"q": "Do I need to install a smartphone app?", "a": "No extra app is needed for load alerts and confirmations. TruckSaathi is designed around WhatsApp, with help available in Hindi and English."}, {"q": "What does it cost?", "a": "₹1,500 flat per successful match. There is no monthly subscription and no percentage commission. We’ll walk through the matching terms during your demo."}, {"q": "Which routes do you cover?", "a": "The Ludhiana–Delhi journey shown here is illustrative. Share your city and regular routes in the demo request to discuss availability for your fleet."}, {"q": "Can I try it first?", "a": "Request a demo to see a sample full-journey plan and discuss your routes before deciding. Submitting this landing-page form is a demonstration only and does not create a booking."}],
-    "ctaLabel": "YOUR NEXT JOURNEY CAN BE DIFFERENT", "ctaTitle": "Fill your return trip.", "ctaBody": "Tell us a little about your fleet. Let’s find your smarter way home.", "name": "Your name", "phone": "Phone number", "fleet": "Fleet size", "city": "Your city", "namePlaceholder": "Full name", "phonePlaceholder": "10-digit mobile number", "cityPlaceholder": "e.g. Ludhiana", "selectFleet": "Select fleet size", "fleetOptions": ["1–4 trucks", "5–10 trucks", "11–20 trucks", "21+ trucks"], "formNote": "Demo form only. Your details are not sent or stored.", "successTitle": "Your sample request is ready.", "successBody": "This is a demonstration—nothing was sent or stored. You’re one step closer to a smarter journey.", "again": "Start again", "footerDesc": "A smarter journey for every truck.\nMore loaded kilometres. More possibilities.", "made": "Made in India. Built for the road.", "copyright": "© 2026 TruckSaathi. All rights reserved.", "contact": "Contact email coming soon", "menu": "Toggle navigation", "language": "Switch to Hindi", "km": "km"
+    "trust": "Built for fleet owners with 5–20 trucks",
+    "trustTag": "YOUR TRUCK. YOUR ROUTE. YOUR SAATHI.",
+    "journey": "Your next journey",
+    "optimized": "OPTIMIZED",
+    "ludhiana": "Ludhiana",
+    "delhi": "Delhi",
+    "chandigarh": "Chandigarh",
+    "jaipur": "Jaipur",
+    "ambala": "Ambala",
+    "outbound": "OUTBOUND · LOADED",
+    "return": "RETURN · LOADED",
+    "tomorrow": "Tomorrow, 6:00 AM",
+    "journeyKm": "620 km round trip",
+    "loaded": "Loaded kilometres",
+    "utilization": "Utilization",
+    "extra": "Extra earnings",
+    "matched": "Return load matched before departure",
+    "mapLabel": "A SMARTER WAY HOME",
+    "north": "NORTH INDIA · ILLUSTRATIVE ROUTE",
+    "live": "JOURNEY INTELLIGENCE",
+    "problemLabel": "THE EMPTY-RETURN PROBLEM",
+    "problemTitle": "An empty truck still costs you.",
+    "stats": [
+      { "value": "40", "suffix": "%", "label": "kilometres run empty" },
+      { "value": "₹25", "suffix": "k", "label": "potential income left behind / month" },
+      { "value": "1", "suffix": " in 3", "label": "return trips without a load" }
+    ],
+    "statsNote": "Illustrative industry estimates · figures pending verification",
+    "problemLine": "Most trucks plan each load alone.",
+    "problemAccent": "We plan the whole journey.",
+    "howLabel": "A BETTER JOURNEY IN THREE STEPS",
+    "howTitle": "Plan once. Earn both ways.",
+    "howIntro": "Less searching. Less waiting. A return load that’s ready when you are.",
+    "steps": [
+      {
+        "title": "Add your truck and route",
+        "body": "Tell us your truck type, starting point and destination. We take it from there."
+      },
+      {
+        "title": "Get your full-journey plan",
+        "body": "See outbound and return loads together, with a clear profit view before you leave."
+      },
+      {
+        "title": "Confirm. Load. Earn.",
+        "body": "Confirm on WhatsApp and keep your truck earning all the way home."
+      }
+    ],
+    "compareLabel": "NOT ANOTHER LOAD BOARD",
+    "compareTitle": "A load gets you there.\nA journey gets you home.",
+    "typical": "Typical load board",
+    "comparisonBrand": "With TruckSaathi",
+    "comparison": [
+      ["Load-by-load matching", "Full multi-leg journey planning"],
+      ["Search after you unload", "Return loads pre-matched"],
+      ["15–20% commission*", "₹1,500 flat per successful match"],
+      ["Another complex app", "Simple, WhatsApp-first experience"]
+    ],
+    "compareNote": "*Illustrative comparison; provider charges vary.",
+    "featuresLabel": "BUILT FOR THE WAY YOU WORK",
+    "featuresTitle": "Big-fleet intelligence.\nSmall-fleet simplicity.",
+    "features": [
+      {
+        "title": "Full-journey matching",
+        "body": "Outbound, return and every leg in between. One plan, not a pile of listings."
+      },
+      {
+        "title": "Your profit, before and after",
+        "body": "See the difference a return load makes before your truck leaves the yard."
+      },
+      {
+        "title": "Updates on WhatsApp",
+        "body": "The right load, at the right time, in the app you already use."
+      },
+      {
+        "title": "Verified shipping partners",
+        "body": "Shipper checks and trust ratings put confidence behind every match."
+      },
+      {
+        "title": "A clearer view of your fleet",
+        "body": "Know which trucks are working, where they’re headed and what they’re earning."
+      },
+      {
+        "title": "Hindi or English. Your choice.",
+        "body": "Work in the language that feels natural to you and your team."
+      }
+    ],
+    "calcLabel": "PUT YOUR EMPTY KILOMETRES TO WORK",
+    "calcTitle": "What could your fleet\nearn on the way home?",
+    "calcIntro": "A few details. A clearer picture of the opportunity.",
+    "trucks": "Number of trucks",
+    "trips": "Trips per truck / month",
+    "empty": "Average empty-return share",
+    "monthly": "Estimated extra revenue / month",
+    "saved": "Empty kilometres saved",
+    "yearly": "Potential extra revenue / year",
+    "calcNote": "Illustrative estimate, not a guarantee. Assumes 600 km per trip, ₹35/km return revenue and recovery of 60% of empty kilometres. Gross revenue before costs and matching fees.",
+    "calcCta": "Let’s plan your first journey",
+    "perMonth": "/ month",
+    "pricingLabel": "FAIR. FLAT. NO SURPRISES.",
+    "pricingTitle": "You earn more.\nWe keep it simple.",
+    "match": "per successful match",
+    "priceLine": "No monthly fee. No commission.",
+    "includes": [
+      "Full-journey load matching",
+      "Verified shipper connections",
+      "WhatsApp alerts & support",
+      "Clear before-and-after profit view"
+    ],
+    "pricingFoot": "Pay for a successful match. Not for searching.",
+    "personaLabel": "THE FLEET OWNER WE’RE BUILDING FOR",
+    "quote": "“My truck earns on the way to Delhi. Why shouldn’t it earn on the way back?”",
+    "person": "Ramesh Kumar",
+    "personDetail": "Fleet owner · Ludhiana · 10 trucks",
+    "personaNote": "Illustrative fleet-owner persona, not a real testimonial.",
+    "faqLabel": "GOOD QUESTIONS. STRAIGHT ANSWERS.",
+    "faqTitle": "Before we hit the road.",
+    "faqs": [
+      {
+        "q": "How is this different from BlackBuck?",
+        "a": "TruckSaathi focuses on your complete journey, rather than an individual load listing. The aim is to match your return load before you leave and show the opportunity across all legs. Other providers’ offerings may vary."
+      },
+      {
+        "q": "How do I trust the shippers?",
+        "a": "Verified shipper connections and trust ratings are part of the TruckSaathi offering. Ask us in your demo how shipper checks, payment terms and dispute support will work for your routes."
+      },
+      {
+        "q": "Do I need to install a smartphone app?",
+        "a": "No extra app is needed for load alerts and confirmations. TruckSaathi is designed around WhatsApp, with help available in Hindi and English."
+      },
+      {
+        "q": "What does it cost?",
+        "a": "₹1,500 flat per successful match. There is no monthly subscription and no percentage commission. We’ll walk through the matching terms during your demo."
+      },
+      {
+        "q": "Which routes do you cover?",
+        "a": "The Ludhiana–Delhi journey shown here is illustrative. Share your city and regular routes in the demo request to discuss availability for your fleet."
+      },
+      {
+        "q": "Can I try it first?",
+        "a": "Request a demo to see a sample full-journey plan and discuss your routes before deciding. Submitting this landing-page form is a demonstration only and does not create a booking."
+      }
+    ],
+    "ctaLabel": "YOUR NEXT JOURNEY CAN BE DIFFERENT",
+    "ctaTitle": "Fill your return trip.",
+    "ctaBody": "Tell us a little about your fleet. Let’s find your smarter way home.",
+    "name": "Your name",
+    "phone": "Phone number",
+    "fleet": "Fleet size",
+    "city": "Your city",
+    "namePlaceholder": "Full name",
+    "phonePlaceholder": "10-digit mobile number",
+    "cityPlaceholder": "e.g. Ludhiana",
+    "selectFleet": "Select fleet size",
+    "fleetOptions": ["1–4 trucks", "5–10 trucks", "11–20 trucks", "21+ trucks"],
+    "formNote": "Demo form only. Your details are not sent or stored.",
+    "successTitle": "Your sample request is ready.",
+    "successBody": "This is a demonstration—nothing was sent or stored. You’re one step closer to a smarter journey.",
+    "again": "Start again",
+    "footerDesc": "A smarter journey for every truck.\nMore loaded kilometres. More possibilities.",
+    "made": "Made in India. Built for the road.",
+    "copyright": "© 2026 TruckSaathi. All rights reserved.",
+    "contact": "Contact email coming soon",
+    "menu": "Toggle navigation",
+    "language": "Switch to Hindi",
+    "km": "km"
   },
   "hi": {
-    "nav": ["कैसे काम करता है", "सुविधाएँ", "कीमत", "सवाल"], "demo": "डेमो का अनुरोध करें", "seeHow": "जानें कैसे काम करता है", "eyebrow": "ज़्यादा लोडेड किलोमीटर। ज़्यादा कमाई।", "headline": "घर लौटें,", "headlineAccent": "खाली नहीं।", "subhead": "TruckSaathi आपके ट्रक की पूरी यात्रा की योजना बनाता है—जाने और लौटने की—ताकि हर किलोमीटर कमाई करे।", "trust": "5–20 ट्रकों वाले फ्लीट मालिकों के लिए", "trustTag": "आपका ट्रक। आपका रूट। आपका साथी।", "journey": "आपकी अगली यात्रा", "optimized": "बेहतर योजना", "ludhiana": "लुधियाना", "delhi": "दिल्ली", "chandigarh": "चंडीगढ़", "jaipur": "जयपुर", "ambala": "अंबाला", "outbound": "जाते समय · लोडेड", "return": "वापसी · लोडेड", "tomorrow": "कल, सुबह 6:00 बजे", "journeyKm": "620 किमी की पूरी यात्रा", "loaded": "लोडेड किलोमीटर", "utilization": "उपयोग", "extra": "अतिरिक्त कमाई", "matched": "रवाना होने से पहले वापसी का लोड तय", "mapLabel": "घर लौटने का बेहतर तरीका", "north": "उत्तर भारत · उदाहरण रूट", "live": "स्मार्ट यात्रा योजना",
-    "problemLabel": "खाली वापसी की समस्या", "problemTitle": "खाली ट्रक भी खर्च करता है।", "stats": [{"value": "40", "suffix": "%", "label": "किलोमीटर खाली चलते हैं"}, {"value": "₹25", "suffix": "k", "label": "संभावित मासिक कमाई का नुकसान"}, {"value": "1", "suffix": " / 3", "label": "वापसी यात्राएँ बिना लोड के"}], "statsNote": "केवल उदाहरण के अनुमान · आँकड़ों की पुष्टि बाकी है", "problemLine": "अधिकतर ट्रक हर लोड अलग से चुनते हैं।", "problemAccent": "हम पूरी यात्रा की योजना बनाते हैं।",
-    "howLabel": "तीन कदम, एक बेहतर यात्रा", "howTitle": "एक योजना। दोनों तरफ कमाई।", "howIntro": "कम खोज। कम इंतज़ार। वापसी का लोड आपके लिए तैयार।", "steps": [{"title": "ट्रक और रूट जोड़ें", "body": "ट्रक का प्रकार, शुरुआती शहर और मंज़िल बताइए। आगे हम संभालेंगे।"}, {"title": "पूरी यात्रा की योजना पाएँ", "body": "रवाना होने से पहले जाने और लौटने के लोड के साथ कमाई का अनुमान देखें।"}, {"title": "तय करें। लोड लें। कमाएँ।", "body": "WhatsApp पर पुष्टि करें और घर लौटने तक कमाई करते रहें।"}],
-    "compareLabel": "सिर्फ एक और लोड बोर्ड नहीं", "compareTitle": "एक लोड मंज़िल तक पहुँचाता है।\nपूरी योजना घर वापस लाती है।", "typical": "आम लोड बोर्ड", "comparisonBrand": "TruckSaathi के साथ", "comparison": [["एक-एक लोड का मिलान", "पूरी बहु-चरण यात्रा की योजना"], ["अनलोड करने के बाद खोज", "वापसी का लोड पहले से तय"], ["15–20% कमीशन*", "हर सफल मिलान पर ₹1,500"], ["एक और जटिल ऐप", "सरल, WhatsApp-आधारित अनुभव"]], "compareNote": "*केवल उदाहरण; अलग कंपनियों के शुल्क अलग हो सकते हैं।",
-    "featuresLabel": "आपके काम करने के तरीके के लिए", "featuresTitle": "बड़े फ्लीट की समझ।\nछोटे फ्लीट की सरलता।", "features": [{"title": "पूरी यात्रा का मिलान", "body": "जाना, लौटना और बीच के सभी चरण। कई लिस्टिंग नहीं, एक योजना।"}, {"title": "पहले और बाद की कमाई", "body": "ट्रक निकलने से पहले देखें कि वापसी का लोड कमाई कैसे बढ़ाता है।"}, {"title": "WhatsApp पर अपडेट", "body": "सही समय पर सही लोड, उसी ऐप पर जिसे आप पहले से इस्तेमाल करते हैं।"}, {"title": "सत्यापित शिपिंग साझेदार", "body": "शिपर की जाँच और भरोसे की रेटिंग, हर मिलान में विश्वास।"}, {"title": "फ्लीट की साफ़ तस्वीर", "body": "जानें कौन से ट्रक चल रहे हैं, कहाँ जा रहे हैं और कितना कमा रहे हैं।"}, {"title": "हिंदी या अंग्रेज़ी। आपकी पसंद।", "body": "आप और आपकी टीम अपनी पसंद की भाषा में काम करें।"}],
-    "calcLabel": "खाली किलोमीटर को काम पर लगाएँ", "calcTitle": "घर लौटते समय आपका फ्लीट\nकितना कमा सकता है?", "calcIntro": "कुछ जानकारी। कमाई के अवसर की साफ़ तस्वीर।", "trucks": "ट्रकों की संख्या", "trips": "प्रति ट्रक मासिक यात्राएँ", "empty": "खाली वापसी का औसत हिस्सा", "monthly": "अनुमानित अतिरिक्त मासिक राजस्व", "saved": "बचाए गए खाली किलोमीटर", "yearly": "संभावित अतिरिक्त सालाना राजस्व", "calcNote": "उदाहरण के लिए अनुमान, गारंटी नहीं। प्रति यात्रा 600 किमी, वापसी राजस्व ₹35/किमी और खाली किलोमीटर में 60% कमी मानता है। खर्च और मिलान शुल्क से पहले कुल राजस्व।", "calcCta": "अपनी पहली यात्रा की योजना बनाएँ", "perMonth": "/ माह",
-    "pricingLabel": "साफ़। तय। कोई छिपा शुल्क नहीं।", "pricingTitle": "आप ज़्यादा कमाएँ।\nहम इसे सरल रखें।", "match": "प्रति सफल मिलान", "priceLine": "कोई मासिक शुल्क नहीं। कोई कमीशन नहीं।", "includes": ["पूरी यात्रा के लोड का मिलान", "सत्यापित शिपर से संपर्क", "WhatsApp अलर्ट और सहायता", "पहले और बाद की कमाई की साफ़ तस्वीर"], "pricingFoot": "सफल मिलान के लिए भुगतान करें। खोजने के लिए नहीं।",
-    "personaLabel": "ऐसे फ्लीट मालिकों के लिए हम बना रहे हैं", "quote": "“मेरा ट्रक दिल्ली जाते समय कमाता है। वापसी में क्यों नहीं?”", "person": "रमेश कुमार", "personDetail": "फ्लीट मालिक · लुधियाना · 10 ट्रक", "personaNote": "केवल उदाहरण का काल्पनिक फ्लीट मालिक, वास्तविक प्रशंसापत्र नहीं।",
-    "faqLabel": "अच्छे सवाल। सीधे जवाब।", "faqTitle": "सफ़र शुरू करने से पहले।", "faqs": [{"q": "यह BlackBuck से कैसे अलग है?", "a": "TruckSaathi एक लोड की लिस्टिंग के बजाय पूरी यात्रा पर ध्यान देता है। लक्ष्य है रवाना होने से पहले वापसी का लोड तय करना और हर चरण की कमाई दिखाना। दूसरी कंपनियों की सुविधाएँ अलग हो सकती हैं।"}, {"q": "शिपर पर भरोसा कैसे करें?", "a": "सत्यापित शिपर और भरोसे की रेटिंग TruckSaathi की सुविधाओं का हिस्सा हैं। डेमो में अपने रूट के लिए जाँच, भुगतान की शर्तों और विवाद सहायता के बारे में पूछें।"}, {"q": "क्या नया स्मार्टफोन ऐप चाहिए?", "a": "अलर्ट और पुष्टि के लिए अतिरिक्त ऐप की ज़रूरत नहीं है। TruckSaathi WhatsApp के आसपास बना है, हिंदी और अंग्रेज़ी सहायता के साथ।"}, {"q": "इसकी कीमत क्या है?", "a": "हर सफल मिलान पर ₹1,500 तय शुल्क। कोई मासिक सदस्यता और प्रतिशत कमीशन नहीं। डेमो में मिलान की शर्तें समझाएँगे।"}, {"q": "कौन से रूट उपलब्ध हैं?", "a": "यहाँ दिखाया लुधियाना–दिल्ली रूट केवल उदाहरण है। अपने फ्लीट की उपलब्धता जानने के लिए डेमो अनुरोध में शहर और नियमित रूट साझा करें।"}, {"q": "क्या पहले देख सकता हूँ?", "a": "डेमो में पूरी यात्रा की उदाहरण योजना देखें और निर्णय से पहले रूट पर चर्चा करें। यह फॉर्म केवल प्रदर्शन है और कोई बुकिंग नहीं करता।"}],
-    "ctaLabel": "आपकी अगली यात्रा अलग हो सकती है", "ctaTitle": "वापसी का ट्रक भी भरें।", "ctaBody": "अपने फ्लीट के बारे में बताएँ। घर लौटने का बेहतर तरीका खोजें।", "name": "आपका नाम", "phone": "फ़ोन नंबर", "fleet": "फ्लीट का आकार", "city": "आपका शहर", "namePlaceholder": "पूरा नाम", "phonePlaceholder": "10 अंकों का मोबाइल नंबर", "cityPlaceholder": "जैसे लुधियाना", "selectFleet": "फ्लीट का आकार चुनें", "fleetOptions": ["1–4 ट्रक", "5–10 ट्रक", "11–20 ट्रक", "21+ ट्रक"], "formNote": "केवल डेमो फॉर्म। जानकारी भेजी या सहेजी नहीं जाती।", "successTitle": "आपका उदाहरण अनुरोध तैयार है।", "successBody": "यह केवल प्रदर्शन है—कुछ भी भेजा या सहेजा नहीं गया। एक बेहतर यात्रा की ओर आपका पहला कदम।", "again": "दोबारा शुरू करें", "footerDesc": "हर ट्रक के लिए बेहतर यात्रा।\nज़्यादा लोडेड किलोमीटर। ज़्यादा अवसर।", "made": "भारत में बना। सड़कों के लिए बना।", "copyright": "© 2026 TruckSaathi. सर्वाधिकार सुरक्षित।", "contact": "संपर्क ईमेल जल्द उपलब्ध होगा", "menu": "नेविगेशन खोलें या बंद करें", "language": "Switch to English", "km": "किमी"
+    "nav": ["कैसे काम करता है", "सुविधाएँ", "कीमत", "सवाल"],
+    "demo": "डेमो का अनुरोध करें",
+    "seeHow": "जानें कैसे काम करता है",
+    "eyebrow": "ज़्यादा लोडेड किलोमीटर। ज़्यादा कमाई।",
+    "headline": "घर लौटें,",
+    "headlineAccent": "खाली नहीं।",
+    "subhead": "TruckSaathi आपके ट्रक की पूरी यात्रा की योजना बनाता है—जाने और लौटने की—ताकि हर किलोमीटर कमाई करे।",
+    "trust": "5–20 ट्रकों वाले फ्लीट मालिकों के लिए",
+    "trustTag": "आपका ट्रक। आपका रूट। आपका साथी।",
+    "journey": "आपकी अगली यात्रा",
+    "optimized": "बेहतर योजना",
+    "ludhiana": "लुधियाना",
+    "delhi": "दिल्ली",
+    "chandigarh": "चंडीगढ़",
+    "jaipur": "जयपुर",
+    "ambala": "अंबाला",
+    "outbound": "जाते समय · लोडेड",
+    "return": "वापसी · लोडेड",
+    "tomorrow": "कल, सुबह 6:00 बजे",
+    "journeyKm": "620 किमी की पूरी यात्रा",
+    "loaded": "लोडेड किलोमीटर",
+    "utilization": "उपयोग",
+    "extra": "अतिरिक्त कमाई",
+    "matched": "रवाना होने से पहले वापसी का लोड तय",
+    "mapLabel": "घर लौटने का बेहतर तरीका",
+    "north": "उत्तर भारत · उदाहरण रूट",
+    "live": "स्मार्ट यात्रा योजना",
+    "problemLabel": "खाली वापसी की समस्या",
+    "problemTitle": "खाली ट्रक भी खर्च करता है।",
+    "stats": [
+      { "value": "40", "suffix": "%", "label": "किलोमीटर खाली चलते हैं" },
+      { "value": "₹25", "suffix": "k", "label": "संभावित मासिक कमाई का नुकसान" },
+      { "value": "1", "suffix": " / 3", "label": "वापसी यात्राएँ बिना लोड के" }
+    ],
+    "statsNote": "केवल उदाहरण के अनुमान · आँकड़ों की पुष्टि बाकी है",
+    "problemLine": "अधिकतर ट्रक हर लोड अलग से चुनते हैं।",
+    "problemAccent": "हम पूरी यात्रा की योजना बनाते हैं।",
+    "howLabel": "तीन कदम, एक बेहतर यात्रा",
+    "howTitle": "एक योजना। दोनों तरफ कमाई।",
+    "howIntro": "कम खोज। कम इंतज़ार। वापसी का लोड आपके लिए तैयार।",
+    "steps": [
+      {
+        "title": "ट्रक और रूट जोड़ें",
+        "body": "ट्रक का प्रकार, शुरुआती शहर और मंज़िल बताइए। आगे हम संभालेंगे।"
+      },
+      {
+        "title": "पूरी यात्रा की योजना पाएँ",
+        "body": "रवाना होने से पहले जाने और लौटने के लोड के साथ कमाई का अनुमान देखें।"
+      },
+      {
+        "title": "तय करें। लोड लें। कमाएँ।",
+        "body": "WhatsApp पर पुष्टि करें और घर लौटने तक कमाई करते रहें।"
+      }
+    ],
+    "compareLabel": "सिर्फ एक और लोड बोर्ड नहीं",
+    "compareTitle": "एक लोड मंज़िल तक पहुँचाता है।\nपूरी योजना घर वापस लाती है।",
+    "typical": "आम लोड बोर्ड",
+    "comparisonBrand": "TruckSaathi के साथ",
+    "comparison": [
+      ["एक-एक लोड का मिलान", "पूरी बहु-चरण यात्रा की योजना"],
+      ["अनलोड करने के बाद खोज", "वापसी का लोड पहले से तय"],
+      ["15–20% कमीशन*", "हर सफल मिलान पर ₹1,500"],
+      ["एक और जटिल ऐप", "सरल, WhatsApp-आधारित अनुभव"]
+    ],
+    "compareNote": "*केवल उदाहरण; अलग कंपनियों के शुल्क अलग हो सकते हैं।",
+    "featuresLabel": "आपके काम करने के तरीके के लिए",
+    "featuresTitle": "बड़े फ्लीट की समझ।\nछोटे फ्लीट की सरलता।",
+    "features": [
+      {
+        "title": "पूरी यात्रा का मिलान",
+        "body": "जाना, लौटना और बीच के सभी चरण। कई लिस्टिंग नहीं, एक योजना।"
+      },
+      {
+        "title": "पहले और बाद की कमाई",
+        "body": "ट्रक निकलने से पहले देखें कि वापसी का लोड कमाई कैसे बढ़ाता है।"
+      },
+      {
+        "title": "WhatsApp पर अपडेट",
+        "body": "सही समय पर सही लोड, उसी ऐप पर जिसे आप पहले से इस्तेमाल करते हैं।"
+      },
+      {
+        "title": "सत्यापित शिपिंग साझेदार",
+        "body": "शिपर की जाँच और भरोसे की रेटिंग, हर मिलान में विश्वास।"
+      },
+      {
+        "title": "फ्लीट की साफ़ तस्वीर",
+        "body": "जानें कौन से ट्रक चल रहे हैं, कहाँ जा रहे हैं और कितना कमा रहे हैं।"
+      },
+      {
+        "title": "हिंदी या अंग्रेज़ी। आपकी पसंद।",
+        "body": "आप और आपकी टीम अपनी पसंद की भाषा में काम करें।"
+      }
+    ],
+    "calcLabel": "खाली किलोमीटर को काम पर लगाएँ",
+    "calcTitle": "घर लौटते समय आपका फ्लीट\nकितना कमा सकता है?",
+    "calcIntro": "कुछ जानकारी। कमाई के अवसर की साफ़ तस्वीर।",
+    "trucks": "ट्रकों की संख्या",
+    "trips": "प्रति ट्रक मासिक यात्राएँ",
+    "empty": "खाली वापसी का औसत हिस्सा",
+    "monthly": "अनुमानित अतिरिक्त मासिक राजस्व",
+    "saved": "बचाए गए खाली किलोमीटर",
+    "yearly": "संभावित अतिरिक्त सालाना राजस्व",
+    "calcNote": "उदाहरण के लिए अनुमान, गारंटी नहीं। प्रति यात्रा 600 किमी, वापसी राजस्व ₹35/किमी और खाली किलोमीटर में 60% कमी मानता है। खर्च और मिलान शुल्क से पहले कुल राजस्व।",
+    "calcCta": "अपनी पहली यात्रा की योजना बनाएँ",
+    "perMonth": "/ माह",
+    "pricingLabel": "साफ़। तय। कोई छिपा शुल्क नहीं।",
+    "pricingTitle": "आप ज़्यादा कमाएँ।\nहम इसे सरल रखें।",
+    "match": "प्रति सफल मिलान",
+    "priceLine": "कोई मासिक शुल्क नहीं। कोई कमीशन नहीं।",
+    "includes": [
+      "पूरी यात्रा के लोड का मिलान",
+      "सत्यापित शिपर से संपर्क",
+      "WhatsApp अलर्ट और सहायता",
+      "पहले और बाद की कमाई की साफ़ तस्वीर"
+    ],
+    "pricingFoot": "सफल मिलान के लिए भुगतान करें। खोजने के लिए नहीं।",
+    "personaLabel": "ऐसे फ्लीट मालिकों के लिए हम बना रहे हैं",
+    "quote": "“मेरा ट्रक दिल्ली जाते समय कमाता है। वापसी में क्यों नहीं?”",
+    "person": "रमेश कुमार",
+    "personDetail": "फ्लीट मालिक · लुधियाना · 10 ट्रक",
+    "personaNote": "केवल उदाहरण का काल्पनिक फ्लीट मालिक, वास्तविक प्रशंसापत्र नहीं।",
+    "faqLabel": "अच्छे सवाल। सीधे जवाब।",
+    "faqTitle": "सफ़र शुरू करने से पहले।",
+    "faqs": [
+      {
+        "q": "यह BlackBuck से कैसे अलग है?",
+        "a": "TruckSaathi एक लोड की लिस्टिंग के बजाय पूरी यात्रा पर ध्यान देता है। लक्ष्य है रवाना होने से पहले वापसी का लोड तय करना और हर चरण की कमाई दिखाना। दूसरी कंपनियों की सुविधाएँ अलग हो सकती हैं।"
+      },
+      {
+        "q": "शिपर पर भरोसा कैसे करें?",
+        "a": "सत्यापित शिपर और भरोसे की रेटिंग TruckSaathi की सुविधाओं का हिस्सा हैं। डेमो में अपने रूट के लिए जाँच, भुगतान की शर्तों और विवाद सहायता के बारे में पूछें।"
+      },
+      {
+        "q": "क्या नया स्मार्टफोन ऐप चाहिए?",
+        "a": "अलर्ट और पुष्टि के लिए अतिरिक्त ऐप की ज़रूरत नहीं है। TruckSaathi WhatsApp के आसपास बना है, हिंदी और अंग्रेज़ी सहायता के साथ।"
+      },
+      {
+        "q": "इसकी कीमत क्या है?",
+        "a": "हर सफल मिलान पर ₹1,500 तय शुल्क। कोई मासिक सदस्यता और प्रतिशत कमीशन नहीं। डेमो में मिलान की शर्तें समझाएँगे।"
+      },
+      {
+        "q": "कौन से रूट उपलब्ध हैं?",
+        "a": "यहाँ दिखाया लुधियाना–दिल्ली रूट केवल उदाहरण है। अपने फ्लीट की उपलब्धता जानने के लिए डेमो अनुरोध में शहर और नियमित रूट साझा करें।"
+      },
+      {
+        "q": "क्या पहले देख सकता हूँ?",
+        "a": "डेमो में पूरी यात्रा की उदाहरण योजना देखें और निर्णय से पहले रूट पर चर्चा करें। यह फॉर्म केवल प्रदर्शन है और कोई बुकिंग नहीं करता।"
+      }
+    ],
+    "ctaLabel": "आपकी अगली यात्रा अलग हो सकती है",
+    "ctaTitle": "वापसी का ट्रक भी भरें।",
+    "ctaBody": "अपने फ्लीट के बारे में बताएँ। घर लौटने का बेहतर तरीका खोजें।",
+    "name": "आपका नाम",
+    "phone": "फ़ोन नंबर",
+    "fleet": "फ्लीट का आकार",
+    "city": "आपका शहर",
+    "namePlaceholder": "पूरा नाम",
+    "phonePlaceholder": "10 अंकों का मोबाइल नंबर",
+    "cityPlaceholder": "जैसे लुधियाना",
+    "selectFleet": "फ्लीट का आकार चुनें",
+    "fleetOptions": ["1–4 ट्रक", "5–10 ट्रक", "11–20 ट्रक", "21+ ट्रक"],
+    "formNote": "केवल डेमो फॉर्म। जानकारी भेजी या सहेजी नहीं जाती।",
+    "successTitle": "आपका उदाहरण अनुरोध तैयार है।",
+    "successBody": "यह केवल प्रदर्शन है—कुछ भी भेजा या सहेजा नहीं गया। एक बेहतर यात्रा की ओर आपका पहला कदम।",
+    "again": "दोबारा शुरू करें",
+    "footerDesc": "हर ट्रक के लिए बेहतर यात्रा।\nज़्यादा लोडेड किलोमीटर। ज़्यादा अवसर।",
+    "made": "भारत में बना। सड़कों के लिए बना।",
+    "copyright": "© 2026 TruckSaathi. सर्वाधिकार सुरक्षित।",
+    "contact": "संपर्क ईमेल जल्द उपलब्ध होगा",
+    "menu": "नेविगेशन खोलें या बंद करें",
+    "language": "Switch to English",
+    "km": "किमी"
   }
 }

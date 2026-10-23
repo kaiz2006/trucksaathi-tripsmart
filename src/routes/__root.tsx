@@ -11,6 +11,7 @@ import {
 import { type ReactNode } from "react";
 
 import { AppLanguageProvider } from "../components/trucksaathi/app-language";
+import { AppThemeProvider } from "../components/trucksaathi/app-theme";
 import { RouteTransition } from "../components/trucksaathi/route-transition";
 import appCss from "../styles.css?url";
 import truckSaathiAppCss from "../styles/app.css?url";
@@ -86,7 +87,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap",
+      },
       {
         rel: "stylesheet",
         href: appCss,
@@ -109,7 +113,12 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        {children}
+        <a href="#main-content" className="ts-skip-link">
+          Skip to main content
+        </a>
+        <div id="main-content" tabIndex={-1}>
+          {children}
+        </div>
         <Scripts />
       </body>
     </html>
@@ -122,7 +131,9 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <AppLanguageProvider>
-        <RouteTransition />
+        <AppThemeProvider>
+          <RouteTransition />
+        </AppThemeProvider>
       </AppLanguageProvider>
     </QueryClientProvider>
   );

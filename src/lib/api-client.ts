@@ -5,7 +5,7 @@ export async function apiRequest<T>(path: string, init: RequestInit = {}): Promi
     ...init,
     headers: { "Content-Type": "application/json", ...init.headers },
   });
-  const payload = await response.json().catch(() => ({})) as T & { error?: string };
+  const payload = (await response.json().catch(() => ({}))) as T & { error?: string };
   if (!response.ok) throw new Error(payload.error ?? `API request failed (${response.status})`);
   return payload;
 }

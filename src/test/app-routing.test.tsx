@@ -33,7 +33,9 @@ describe("App routing", () => {
   });
 
   it("creates a shared capacity ledger table for partial-booking reservations", () => {
-    const table = db.prepare("SELECT name FROM sqlite_master WHERE type = 'table' AND name = 'capacity_ledger'").get() as { name?: string } | undefined;
+    const table = db
+      .prepare("SELECT name FROM sqlite_master WHERE type = 'table' AND name = 'capacity_ledger'")
+      .get() as { name?: string } | undefined;
 
     expect(table?.name).toBe("capacity_ledger");
   });

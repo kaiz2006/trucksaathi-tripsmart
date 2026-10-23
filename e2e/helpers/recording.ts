@@ -1,4 +1,4 @@
-import type { Page } from '@playwright/test';
+import type { Page } from "@playwright/test";
 
 export async function installCursorOverlay(page: Page) {
   await page.addStyleTag({
@@ -60,45 +60,45 @@ export async function installCursorOverlay(page: Page) {
   });
 
   await page.evaluate(() => {
-    const overlay = document.createElement('div');
-    overlay.id = 'ts-cursor-overlay';
-    const cursor = document.createElement('div');
-    cursor.id = 'ts-cursor-dot';
-    const ripple = document.createElement('div');
-    ripple.id = 'ts-click-ripple';
+    const overlay = document.createElement("div");
+    overlay.id = "ts-cursor-overlay";
+    const cursor = document.createElement("div");
+    cursor.id = "ts-cursor-dot";
+    const ripple = document.createElement("div");
+    ripple.id = "ts-click-ripple";
     overlay.appendChild(cursor);
     overlay.appendChild(ripple);
     document.body.appendChild(overlay);
 
     const move = (event: MouseEvent) => {
-      const dot = document.getElementById('ts-cursor-dot');
+      const dot = document.getElementById("ts-cursor-dot");
       if (!dot) return;
       dot.style.left = `${event.clientX}px`;
       dot.style.top = `${event.clientY}px`;
     };
 
-    document.addEventListener('mousemove', move, { passive: true });
-    document.addEventListener('click', (event: MouseEvent) => {
-      const rippleEl = document.getElementById('ts-click-ripple');
+    document.addEventListener("mousemove", move, { passive: true });
+    document.addEventListener("click", (event: MouseEvent) => {
+      const rippleEl = document.getElementById("ts-click-ripple");
       if (!rippleEl) return;
       rippleEl.style.left = `${event.clientX}px`;
       rippleEl.style.top = `${event.clientY}px`;
-      rippleEl.style.opacity = '1';
-      rippleEl.style.animation = 'none';
+      rippleEl.style.opacity = "1";
+      rippleEl.style.animation = "none";
       void rippleEl.offsetWidth;
-      rippleEl.style.animation = 'tsRipple 420ms ease-out forwards';
+      rippleEl.style.animation = "tsRipple 420ms ease-out forwards";
     });
 
-    const caption = document.createElement('div');
-    caption.id = 'ts-caption-bar';
-    caption.textContent = 'TruckSaathi demo';
+    const caption = document.createElement("div");
+    caption.id = "ts-caption-bar";
+    caption.textContent = "TruckSaathi demo";
     document.body.appendChild(caption);
   });
 }
 
 export async function setCaption(page: Page, text: string) {
   await page.evaluate((value) => {
-    const caption = document.getElementById('ts-caption-bar');
+    const caption = document.getElementById("ts-caption-bar");
     if (caption) caption.textContent = value;
   }, text);
 }
@@ -109,12 +109,12 @@ export async function pause(page: Page, ms = 1000) {
 
 export async function expectNoConsoleErrors(page: Page) {
   const errors: string[] = [];
-  page.on('pageerror', (error) => errors.push(`pageerror: ${error.message}`));
-  page.on('console', (message) => {
-    if (message.type() === 'error') errors.push(`console: ${message.text()}`);
+  page.on("pageerror", (error) => errors.push(`pageerror: ${error.message}`));
+  page.on("console", (message) => {
+    if (message.type() === "error") errors.push(`console: ${message.text()}`);
   });
   await page.waitForTimeout(150);
   if (errors.length > 0) {
-    throw new Error(errors.join('\n'));
+    throw new Error(errors.join("\n"));
   }
 }

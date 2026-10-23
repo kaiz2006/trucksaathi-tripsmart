@@ -1,18 +1,325 @@
-import { ArrowRight, ArrowUpRight, BarChart3, Check, CheckCheck, Languages, MessageCircle, Route, ShieldCheck, Truck, TrendingUp, Users } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { DemoButton, Logo, anchors } from './navigation';
-import { JourneyPlan, RouteMap, TruckIllustration, type Copy } from './journey';
-export function Hero({ t }: { t: Copy }) { return <section className="hero"><div className="container hero-layout"><div className="hero-copy"><span className="hero-eyebrow"><span className="eyebrow-line"/>{t.eyebrow}</span><h1>{t.headline}<br/><span>{t.headlineAccent}</span></h1><p>{t.subhead}</p><div className="hero-buttons"><DemoButton t={t}/><DemoButton t={t} secondary/></div><div className="hero-trust"><span className="trust-icon"><Users size={15}/></span>{t.trust}</div></div><div className="hero-visual"><div className="map-top-label"><span className="status-dot"/>{t.live}<span className="map-cross">+</span></div><RouteMap t={t}/><JourneyPlan t={t}/><div className="map-caption"><span>01 —</span>{t.mapLabel}<ArrowUpRight size={17}/></div></div></div><div className="hero-bottom"><div className="container"><span>{t.trustTag}</span><div className="road-dashes" aria-hidden="true"/><Truck size={19}/></div></div></section>; }
+import {
+  ArrowRight,
+  ArrowUpRight,
+  BarChart3,
+  Check,
+  CheckCheck,
+  Languages,
+  MessageCircle,
+  Route,
+  ShieldCheck,
+  Truck,
+  TrendingUp,
+  Users,
+} from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { DemoButton, Logo, anchors } from "./navigation";
+import { JourneyPlan, RouteMap, TruckIllustration, type Copy } from "./journey";
+export function Hero({ t }: { t: Copy }) {
+  return (
+    <section className="hero">
+      <div className="container hero-layout">
+        <div className="hero-copy">
+          <span className="hero-eyebrow">
+            <span className="eyebrow-line" />
+            {t.eyebrow}
+          </span>
+          <h1>
+            {t.headline}
+            <br />
+            <span>{t.headlineAccent}</span>
+          </h1>
+          <p>{t.subhead}</p>
+          <div className="hero-buttons">
+            <DemoButton t={t} />
+            <DemoButton t={t} secondary />
+          </div>
+          <div className="hero-trust">
+            <span className="trust-icon">
+              <Users size={15} />
+            </span>
+            {t.trust}
+          </div>
+        </div>
+        <div className="hero-visual">
+          <div className="map-top-label">
+            <span className="status-dot" />
+            {t.live}
+            <span className="map-cross">+</span>
+          </div>
+          <RouteMap t={t} />
+          <JourneyPlan t={t} />
+          <div className="map-caption">
+            <span>01 —</span>
+            {t.mapLabel}
+            <ArrowUpRight size={17} />
+          </div>
+        </div>
+      </div>
+      <div className="hero-bottom">
+        <div className="container">
+          <span>{t.trustTag}</span>
+          <div className="road-dashes" aria-hidden="true" />
+          <Truck size={19} />
+        </div>
+      </div>
+    </section>
+  );
+}
 function CountUp({ value }: { value: string }) {
-  const ref = useRef<HTMLSpanElement>(null); const [number, setNumber] = useState(value);
-  useEffect(() => { const node = ref.current; if (!node || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; const target = Number(value.replace('₹', '')); if (!Number.isFinite(target)) return; let frame = 0; const observer = new IntersectionObserver(entries => { if (!entries[0]?.isIntersecting) return; observer.disconnect(); const start = performance.now(); const tick = (time: number) => { const progress = Math.min((time - start) / 1000, 1); setNumber(`${value.startsWith('₹') ? '₹' : ''}${Math.round(target * (1 - Math.pow(1 - progress, 3)))}`); if (progress < 1) frame = requestAnimationFrame(tick); }; frame = requestAnimationFrame(tick); }); observer.observe(node); return () => { observer.disconnect(); cancelAnimationFrame(frame); }; }, [value]);
+  const ref = useRef<HTMLSpanElement>(null);
+  const [number, setNumber] = useState(value);
+  useEffect(() => {
+    const node = ref.current;
+    if (!node || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const target = Number(value.replace("₹", ""));
+    if (!Number.isFinite(target)) return;
+    let frame = 0;
+    const observer = new IntersectionObserver((entries) => {
+      if (!entries[0]?.isIntersecting) return;
+      observer.disconnect();
+      const start = performance.now();
+      const tick = (time: number) => {
+        const progress = Math.min((time - start) / 1000, 1);
+        setNumber(
+          `${value.startsWith("₹") ? "₹" : ""}${Math.round(target * (1 - Math.pow(1 - progress, 3)))}`,
+        );
+        if (progress < 1) frame = requestAnimationFrame(tick);
+      };
+      frame = requestAnimationFrame(tick);
+    });
+    observer.observe(node);
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(frame);
+    };
+  }, [value]);
   return <span ref={ref}>{number}</span>;
 }
-export function StatStrip({ t }: { t: Copy }) { return <section className="problem-section"><div className="container"><div className="problem-top"><span className="eyebrow">{t.problemLabel}</span><span className="problem-title">{t.problemTitle}</span></div><div className="stat-grid">{/* TODO: Replace these illustrative statistics with sourced and verified industry figures. */}{t.stats.map((stat, i) => <div className="stat-item" key={i}><div className="stat-value"><CountUp value={stat.value}/><span>{stat.suffix}</span></div><p>{stat.label}</p></div>)}</div><div className="problem-bottom"><p>{t.problemLine} <strong>{t.problemAccent}</strong></p><small>{t.statsNote}</small></div></div></section>; }
-export function HowItWorks({ t }: { t: Copy }) { const icons = [Truck, Route, MessageCircle]; return <section className="section how-section" id="how-it-works"><div className="container"><div className="section-heading heading-row"><div><span className="eyebrow">{t.howLabel}</span><h2>{t.howTitle}</h2></div><p>{t.howIntro}</p></div><div className="steps-grid">{t.steps.map((step, i) => { const Icon = icons[i] ?? Truck; return <article className="step" key={i}><div className="step-top"><div className="step-icon"><Icon size={25}/></div><span>0{i + 1}</span><div className="step-connector"/></div><h3>{step.title}</h3><p>{step.body}</p></article>; })}</div></div></section>; }
-export function Comparison({ t }: { t: Copy }) { return <section className="comparison-section section"><div className="container comparison-layout"><div className="section-heading"><span className="eyebrow">{t.compareLabel}</span><h2>{t.compareTitle}</h2><TruckIllustration/></div><div><div className="comparison-table"><div className="comparison-table-heading"><span>{t.typical}</span><strong><Route size={17}/>{t.comparisonBrand}</strong></div>{t.comparison.map((row, i) => <div className="comparison-row" key={i}><span><span className="comparison-dash">—</span>{row[0]}</span><strong><Check size={17}/>{row[1]}</strong></div>)}</div><p className="comparison-note">{t.compareNote}</p></div></div></section>; }
-export function Features({ t }: { t: Copy }) { const icons = [Route, TrendingUp, MessageCircle, ShieldCheck, BarChart3, Languages]; return <section className="section features-section" id="features"><div className="container"><div className="section-heading"><span className="eyebrow">{t.featuresLabel}</span><h2>{t.featuresTitle}</h2></div><div className="features-grid">{t.features.map((feature, i) => { const Icon = icons[i] ?? Route; return <article className="feature-card" key={i}><div className="feature-icon"><Icon size={23}/></div><span className="feature-number">0{i + 1}</span><h3>{feature.title}</h3><p>{feature.body}</p></article>; })}</div></div></section>; }
-export function Pricing({ t }: { t: Copy }) { return <section className="section pricing-section" id="pricing"><div className="container pricing-layout"><div className="section-heading"><span className="eyebrow">{t.pricingLabel}</span><h2>{t.pricingTitle}</h2><p>{t.pricingFoot}</p><div className="price-graphic" aria-hidden="true"><span>₹</span><div/><CheckCheck size={28}/></div></div><div className="pricing-card"><div className="pricing-amount">₹1,500</div><p className="price-unit">{t.match}</p><h3>{t.priceLine}</h3><ul>{t.includes.map(item => <li key={item}><Check size={17}/>{item}</li>)}</ul><Button variant="road" asChild size="lg"><a href="/app">{t.demo}<ArrowUpRight/></a></Button></div></div></section>; }
-export function Testimonial({ t }: { t: Copy }) { return <section className="persona-section"><div className="container persona-layout"><div className="persona-mark" aria-hidden="true">“</div><div><span className="eyebrow">{t.personaLabel}</span>{/* Illustrative placeholder persona. This is not a real testimonial. */}<blockquote>{t.quote}</blockquote><div className="persona-person"><span className="person-avatar"><Truck size={22}/></span><div><strong>{t.person}</strong><p>{t.personDetail}</p></div></div><small>{t.personaNote}</small></div></div></section>; }
-export function Footer({ t }: { t: Copy }) { return <footer className="footer"><div className="container"><div className="footer-top"><div><Logo/><p>{t.footerDesc}</p></div><nav aria-label="Footer">{t.nav.map((link, i) => <a href={`#${anchors[i]}`} key={link}>{link}</a>)}</nav><div className="footer-contact"><span>{t.contact}</span><span className="made-india"><span className="india-flag" aria-hidden="true"/>{t.made}</span></div></div><div className="footer-bottom"><span>{t.copyright}</span><a href="#top" aria-label="TruckSaathi">TruckSaathi <ArrowUpRight size={14}/></a></div></div></footer>; }
+export function StatStrip({ t }: { t: Copy }) {
+  return (
+    <section className="problem-section">
+      <div className="container">
+        <div className="problem-top">
+          <span className="eyebrow">{t.problemLabel}</span>
+          <span className="problem-title">{t.problemTitle}</span>
+        </div>
+        <div className="stat-grid">
+          {/* TODO: Replace these illustrative statistics with sourced and verified industry figures. */}
+          {t.stats.map((stat, i) => (
+            <div className="stat-item" key={i}>
+              <div className="stat-value">
+                <CountUp value={stat.value} />
+                <span>{stat.suffix}</span>
+              </div>
+              <p>{stat.label}</p>
+            </div>
+          ))}
+        </div>
+        <div className="problem-bottom">
+          <p>
+            {t.problemLine} <strong>{t.problemAccent}</strong>
+          </p>
+          <small>{t.statsNote}</small>
+        </div>
+      </div>
+    </section>
+  );
+}
+export function HowItWorks({ t }: { t: Copy }) {
+  const icons = [Truck, Route, MessageCircle];
+  return (
+    <section className="section how-section" id="how-it-works">
+      <div className="container">
+        <div className="section-heading heading-row">
+          <div>
+            <span className="eyebrow">{t.howLabel}</span>
+            <h2>{t.howTitle}</h2>
+          </div>
+          <p>{t.howIntro}</p>
+        </div>
+        <div className="steps-grid">
+          {t.steps.map((step, i) => {
+            const Icon = icons[i] ?? Truck;
+            return (
+              <article className="step" key={i}>
+                <div className="step-top">
+                  <div className="step-icon">
+                    <Icon size={25} />
+                  </div>
+                  <span>0{i + 1}</span>
+                  <div className="step-connector" />
+                </div>
+                <h3>{step.title}</h3>
+                <p>{step.body}</p>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+export function Comparison({ t }: { t: Copy }) {
+  return (
+    <section className="comparison-section section">
+      <div className="container comparison-layout">
+        <div className="section-heading">
+          <span className="eyebrow">{t.compareLabel}</span>
+          <h2>{t.compareTitle}</h2>
+          <TruckIllustration />
+        </div>
+        <div>
+          <div className="comparison-table">
+            <div className="comparison-table-heading">
+              <span>{t.typical}</span>
+              <strong>
+                <Route size={17} />
+                {t.comparisonBrand}
+              </strong>
+            </div>
+            {t.comparison.map((row, i) => (
+              <div className="comparison-row" key={i}>
+                <span>
+                  <span className="comparison-dash">—</span>
+                  {row[0]}
+                </span>
+                <strong>
+                  <Check size={17} />
+                  {row[1]}
+                </strong>
+              </div>
+            ))}
+          </div>
+          <p className="comparison-note">{t.compareNote}</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+export function Features({ t }: { t: Copy }) {
+  const icons = [Route, TrendingUp, MessageCircle, ShieldCheck, BarChart3, Languages];
+  return (
+    <section className="section features-section" id="features">
+      <div className="container">
+        <div className="section-heading">
+          <span className="eyebrow">{t.featuresLabel}</span>
+          <h2>{t.featuresTitle}</h2>
+        </div>
+        <div className="features-grid">
+          {t.features.map((feature, i) => {
+            const Icon = icons[i] ?? Route;
+            return (
+              <article className="feature-card" key={i}>
+                <div className="feature-icon">
+                  <Icon size={23} />
+                </div>
+                <span className="feature-number">0{i + 1}</span>
+                <h3>{feature.title}</h3>
+                <p>{feature.body}</p>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+export function Pricing({ t }: { t: Copy }) {
+  return (
+    <section className="section pricing-section" id="pricing">
+      <div className="container pricing-layout">
+        <div className="section-heading">
+          <span className="eyebrow">{t.pricingLabel}</span>
+          <h2>{t.pricingTitle}</h2>
+          <p>{t.pricingFoot}</p>
+          <div className="price-graphic" aria-hidden="true">
+            <span>₹</span>
+            <div />
+            <CheckCheck size={28} />
+          </div>
+        </div>
+        <div className="pricing-card">
+          <div className="pricing-amount">₹1,500</div>
+          <p className="price-unit">{t.match}</p>
+          <h3>{t.priceLine}</h3>
+          <ul>
+            {t.includes.map((item) => (
+              <li key={item}>
+                <Check size={17} />
+                {item}
+              </li>
+            ))}
+          </ul>
+          <Button variant="road" asChild size="lg">
+            <a href="/app">
+              {t.demo}
+              <ArrowUpRight />
+            </a>
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+}
+export function Testimonial({ t }: { t: Copy }) {
+  return (
+    <section className="persona-section">
+      <div className="container persona-layout">
+        <div className="persona-mark" aria-hidden="true">
+          “
+        </div>
+        <div>
+          <span className="eyebrow">{t.personaLabel}</span>
+          {/* Illustrative placeholder persona. This is not a real testimonial. */}
+          <blockquote>{t.quote}</blockquote>
+          <div className="persona-person">
+            <span className="person-avatar">
+              <Truck size={22} />
+            </span>
+            <div>
+              <strong>{t.person}</strong>
+              <p>{t.personDetail}</p>
+            </div>
+          </div>
+          <small>{t.personaNote}</small>
+        </div>
+      </div>
+    </section>
+  );
+}
+export function Footer({ t }: { t: Copy }) {
+  return (
+    <footer className="footer">
+      <div className="container">
+        <div className="footer-top">
+          <div>
+            <Logo />
+            <p>{t.footerDesc}</p>
+          </div>
+          <nav aria-label="Footer">
+            {t.nav.map((link, i) => (
+              <a href={`#${anchors[i]}`} key={link}>
+                {link}
+              </a>
+            ))}
+          </nav>
+          <div className="footer-contact">
+            <span>{t.contact}</span>
+            <span className="made-india">
+              <span className="india-flag" aria-hidden="true" />
+              {t.made}
+            </span>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <span>{t.copyright}</span>
+          <a href="#top" aria-label="TruckSaathi">
+            TruckSaathi <ArrowUpRight size={14} />
+          </a>
+        </div>
+      </div>
+    </footer>
+  );
+}

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ArrowLeft, MapPin, Snowflake, Truck } from "lucide-react";
 
 import { AppTabs } from "@/components/trucksaathi/app-tabs";
 import { useAppLanguage } from "@/components/trucksaathi/app-language";
 import { demoFleet } from "@/data/transporter-demo";
-import { offerCopy } from "@/data/app-copy";
+import { transporterCopy } from "@/data/transporter-demo";
 
 export const Route = createFileRoute("/app/transporter/offers")({ component: OffersScreen });
 
@@ -66,8 +66,9 @@ const offersByTruck: { truckId: string; offers: Offer[] }[] = [
 ];
 
 function OffersScreen() {
+  const navigate = useNavigate();
   const { language } = useAppLanguage();
-  const t = offerCopy[language];
+  const t = transporterCopy[language];
   const [decisions, setDecisions] = useState<Record<string, "accepted" | "declined">>({});
   const [showAll, setShowAll] = useState(true);
   const [selectedIds, setSelectedIds] = useState<string[] | undefined>();
@@ -87,15 +88,18 @@ function OffersScreen() {
 
   function decide(id: string, choice: "accepted" | "declined") {
     setDecisions((current) => ({ ...current, [id]: choice }));
+    if (choice === "accepted") {
+      void navigate({ to: "/app/activity", search: { role: "transporter" } });
+    }
   }
 
   return (
-    <main className="ts-app-page" lang={language}>
+    <main className="ts-app-page" lang={language} id="main-content">
       <div className="ts-app-frame ts-flow-frame">
         <header className="ts-flow-header">
           <Link
             to="/app/home"
-            search={{ role: "transporter" }}
+            search={{ role: "transporter", phone: undefined }}
             className="ts-back-link"
             aria-label={language === "en" ? "Back" : "वापस"}
           >
@@ -105,8 +109,8 @@ function OffersScreen() {
         </header>
         <section className="ts-flow-content">
           <span className="ts-login-role">{t.match}</span>
-          <h1>{t.title}</h1>
-          <p className="ts-flow-intro">{t.intro}</p>
+          <h1>{t.offerTitle}</h1>
+          <p className="ts-flow-intro">{t.offerSubtitle}</p>
           {offersByTruck
             .filter(
               ({ truckId, offers }) =>
@@ -133,7 +137,7 @@ function OffersScreen() {
                     </span>
                     <span className="ts-truck-match-count">
                       {offers.length
-                        ? `${offers.length} ${offers.length === 1 ? t.match : t.matches}`
+                        ? `${offers.length} ${offers.length === 1 ? t.matchSingle : t.match}`
                         : t.noMatch}
                     </span>
                   </div>
@@ -162,11 +166,11 @@ function OffersScreen() {
                             {offer.weight}
                           </span>
                           <span>
-                            <small>{t.cargo}</small>
+                            <small>{t.cargoType}</small>
                             {offer.cargo}
                           </span>
                           <span>
-                            <small>{t.pickup}</small>
+                            <small>{t.pickupWindowLabel}</small>
                             {offer.pickup}
                           </span>
                         </div>
@@ -182,7 +186,7 @@ function OffersScreen() {
                             <strong>₹1,500</strong>
                           </span>
                           <span>
-                            <small>{t.net}</small>
+                            <small>{t.netAfterFee}</small>
                             <strong>
                               ₹{net.toLocaleString(language === "hi" ? "hi-IN" : "en-IN")}
                             </strong>
@@ -227,7 +231,7 @@ function OffersScreen() {
           className="ts-secondary-button ts-unmatched-toggle"
           onClick={() => setShowAll(!showAll)}
         >
-          {showAll ? t.unmatchedOnly : t.allTrucks}
+          {showAll ? t.yourTrucks : t.otherDestinations}
         </button>
         <AppTabs active="home" role="transporter" />
       </div>
