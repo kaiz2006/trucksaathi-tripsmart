@@ -9,6 +9,14 @@ import {
   Sun,
   Truck,
   UserRound,
+  CreditCard,
+  Shield,
+  Zap,
+  Building2,
+  Smartphone,
+  TrendingUp,
+  Award,
+  Wallet,
 } from "lucide-react";
 
 import { AppTabs } from "@/components/trucksaathi/app-tabs";
@@ -115,6 +123,111 @@ function ProfileScreen() {
               <ChevronRight size={17} />
             </strong>
           </Link>
+        </section>
+
+        {/* New Features Section */}
+        <section className="ts-profile-features">
+          <h3>{language === "en" ? "Premium Features" : "प्रीमियम सुविधाएं"}</h3>
+
+          {/* Payment Integration */}
+          <div className="ts-feature-card">
+            <div className="ts-feature-icon">
+              <CreditCard size={24} />
+            </div>
+            <div className="ts-feature-content">
+              <h4>{language === "en" ? "Digital Payments" : "डिजिटल भुगतान"}</h4>
+              <p>
+                {language === "en" ? "UPI, cards, wallet integration" : "UPI, कार्ड, वॉलेट एकीकरण"}
+              </p>
+              <div className="ts-feature-badge">{language === "en" ? "Active" : "सक्रिय"}</div>
+            </div>
+            <ChevronRight size={18} className="ts-feature-arrow" />
+          </div>
+
+          {/* Insurance */}
+          <div className="ts-feature-card">
+            <div className="ts-feature-icon">
+              <Shield size={24} />
+            </div>
+            <div className="ts-feature-content">
+              <h4>{language === "en" ? "Cargo Insurance" : "कार्गो बीमा"}</h4>
+              <p>
+                {language === "en" ? "Up to ₹10L coverage available" : "₹10 लाख तक कवरेज उपलब्ध"}
+              </p>
+              <div className="ts-feature-badge">{language === "en" ? "Optional" : "वैकल्पिक"}</div>
+            </div>
+            <ChevronRight size={18} className="ts-feature-arrow" />
+          </div>
+
+          {/* AI Pricing */}
+          <div className="ts-feature-card">
+            <div className="ts-feature-icon">
+              <Zap size={24} />
+            </div>
+            <div className="ts-feature-content">
+              <h4>{language === "en" ? "AI Dynamic Pricing" : "AI डायनामिक प्राइसिंग"}</h4>
+              <p>
+                {language === "en" ? "Smart rates based on demand" : "मांग के आधार पर स्मार्ट दरें"}
+              </p>
+              <div className="ts-feature-badge ts-badge-green">
+                {language === "en" ? "AI Powered" : "AI संचालित"}
+              </div>
+            </div>
+            <ChevronRight size={18} className="ts-feature-arrow" />
+          </div>
+
+          {/* Enterprise Features */}
+          <div className="ts-feature-card">
+            <div className="ts-feature-icon">
+              <Building2 size={24} />
+            </div>
+            <div className="ts-feature-content">
+              <h4>{language === "en" ? "Enterprise Solutions" : "एंटरप्राइज़ समाधान"}</h4>
+              <p>{language === "en" ? "Bulk booking & API access" : "बल्क बुकिंग और API एक्सेस"}</p>
+              <div className="ts-feature-badge">{language === "en" ? "Pro" : "प्रो"}</div>
+            </div>
+            <ChevronRight size={18} className="ts-feature-arrow" />
+          </div>
+
+          {/* Driver App */}
+          <div className="ts-feature-card">
+            <div className="ts-feature-icon">
+              <Smartphone size={24} />
+            </div>
+            <div className="ts-feature-content">
+              <h4>{language === "en" ? "Driver App" : "ड्राइवर ऐप"}</h4>
+              <p>{language === "en" ? "Dedicated app for drivers" : "ड्राइवरों के लिए विशेष ऐप"}</p>
+              <div className="ts-feature-badge">
+                {language === "en" ? "Coming Soon" : "जल्द आ रहा है"}
+              </div>
+            </div>
+            <ChevronRight size={18} className="ts-feature-arrow" />
+          </div>
+        </section>
+
+        {/* Stats Section */}
+        <section className="ts-profile-stats">
+          <div className="ts-stat-item">
+            <TrendingUp size={20} />
+            <div>
+              <strong>{language === "en" ? "₹4.2L" : "₹4.2 लाख"}</strong>
+              <small>{language === "en" ? "Total Savings" : "कुल बचत"}</small>
+            </div>
+          </div>
+          <div className="ts-stat-item">
+            <Award size={20} />
+            <div>
+              <strong>4.9</strong>
+              <small>{language === "en" ? "Rating" : "रेटिंग"}</small>
+            </div>
+          </div>
+          <div className="ts-stat-item">
+            <Wallet size={20} />
+            <div>
+              <strong>{language === "en" ? "₹18,500" : "₹18,500"}</strong>
+              <small>{language === "en" ? "This Month" : "इस महीने"}</small>
+            </div>
+          </div>
         </section>
         <button
           className="ts-role-switch"

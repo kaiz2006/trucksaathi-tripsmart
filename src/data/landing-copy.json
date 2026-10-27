@@ -30,9 +30,21 @@
     "problemLabel": "THE EMPTY-RETURN PROBLEM",
     "problemTitle": "An empty truck still costs you.",
     "stats": [
-      { "value": "40", "suffix": "%", "label": "kilometres run empty" },
-      { "value": "₹25", "suffix": "k", "label": "potential income left behind / month" },
-      { "value": "1", "suffix": " in 3", "label": "return trips without a load" }
+      {
+        "value": "40",
+        "suffix": "%",
+        "label": "kilometres run empty"
+      },
+      {
+        "value": "₹25",
+        "suffix": "k",
+        "label": "potential income left behind / month"
+      },
+      {
+        "value": "1",
+        "suffix": " in 3",
+        "label": "return trips without a load"
+      }
     ],
     "statsNote": "Illustrative industry estimates · figures pending verification",
     "problemLine": "Most trucks plan each load alone.",
@@ -54,17 +66,19 @@
         "body": "Confirm on WhatsApp and keep your truck earning all the way home."
       }
     ],
-    "compareLabel": "NOT ANOTHER LOAD BOARD",
+    "compareLabel": "NOT PORTER. NOT BLACKBUCK. YOUR SAATHI.",
     "compareTitle": "A load gets you there.\nA journey gets you home.",
-    "typical": "Typical load board",
+    "typical": "Porter / BlackBuck",
     "comparisonBrand": "With TruckSaathi",
+    "compareSubtitle": "Porter handles city deliveries. BlackBuck lists loads. Neither plans your whole journey.",
     "comparison": [
-      ["Load-by-load matching", "Full multi-leg journey planning"],
-      ["Search after you unload", "Return loads pre-matched"],
-      ["15–20% commission*", "₹1,500 flat per successful match"],
-      ["Another complex app", "Simple, WhatsApp-first experience"]
+      ["Load-by-load or city-only matching", "Full multi-leg intercity journey planning"],
+      ["Search for return loads after unloading", "Return load pre-matched before you leave"],
+      ["15–20% commission or per-trip fee*", "₹1,500 flat per successful match"],
+      ["Complex app with steep learning curve", "WhatsApp-first — no new app to learn"],
+      ["No fleet earnings visibility", "Before-and-after profit view per trip"]
     ],
-    "compareNote": "*Illustrative comparison; provider charges vary.",
+    "compareNote": "*Illustrative comparison based on publicly available information; actual charges may vary.",
     "featuresLabel": "BUILT FOR THE WAY YOU WORK",
     "featuresTitle": "Big-fleet intelligence.\nSmall-fleet simplicity.",
     "features": [
@@ -77,20 +91,28 @@
         "body": "See the difference a return load makes before your truck leaves the yard."
       },
       {
-        "title": "Updates on WhatsApp",
-        "body": "The right load, at the right time, in the app you already use."
+        "title": "WhatsApp-first experience",
+        "body": "Load alerts and confirmations on WhatsApp — no extra app, no new login, just messages."
       },
       {
         "title": "Verified shipping partners",
         "body": "Shipper checks and trust ratings put confidence behind every match."
       },
       {
-        "title": "A clearer view of your fleet",
-        "body": "Know which trucks are working, where they’re headed and what they’re earning."
+        "title": "Live fleet dashboard",
+        "body": "See all your trucks on one screen — where they are, what they carry, what they earn."
       },
       {
         "title": "Hindi or English. Your choice.",
         "body": "Work in the language that feels natural to you and your team."
+      },
+      {
+        "title": "Flat ₹1,500 per match",
+        "body": "No monthly subscription. No percentage cut. Pay only when a successful match is made."
+      },
+      {
+        "title": "Dispute & payment support",
+        "body": "Built-in escalation paths and payment tracking so you are never left chasing money."
       }
     ],
     "calcLabel": "PUT YOUR EMPTY KILOMETRES TO WORK",
@@ -125,8 +147,12 @@
     "faqTitle": "Before we hit the road.",
     "faqs": [
       {
-        "q": "How is this different from BlackBuck?",
-        "a": "TruckSaathi focuses on your complete journey, rather than an individual load listing. The aim is to match your return load before you leave and show the opportunity across all legs. Other providers’ offerings may vary."
+        "q": "How is TruckSaathi different from Porter?",
+        "a": "Porter focuses on intracity (within-city) deliveries and shifting. TruckSaathi is built for intercity freight journeys — Ludhiana to Delhi and back. Porter does not help plan return loads across city boundaries."
+      },
+      {
+        "q": "How is TruckSaathi different from BlackBuck?",
+        "a": "BlackBuck is a load marketplace where you search listings one by one. TruckSaathi plans your complete journey — matching your return load before you leave, so your truck is not sitting idle after unloading."
       },
       {
         "q": "How do I trust the shippers?",
@@ -138,11 +164,11 @@
       },
       {
         "q": "What does it cost?",
-        "a": "₹1,500 flat per successful match. There is no monthly subscription and no percentage commission. We’ll walk through the matching terms during your demo."
+        "a": "₹1,500 flat per successful match. There is no monthly subscription and no percentage commission. We will walk through the matching terms during your demo."
       },
       {
         "q": "Which routes do you cover?",
-        "a": "The Ludhiana–Delhi journey shown here is illustrative. Share your city and regular routes in the demo request to discuss availability for your fleet."
+        "a": "The Ludhiana-Delhi journey shown here is illustrative. Share your city and regular routes in the demo request to discuss availability for your fleet."
       },
       {
         "q": "Can I try it first?",
@@ -204,9 +230,21 @@
     "problemLabel": "खाली वापसी की समस्या",
     "problemTitle": "खाली ट्रक भी खर्च करता है।",
     "stats": [
-      { "value": "40", "suffix": "%", "label": "किलोमीटर खाली चलते हैं" },
-      { "value": "₹25", "suffix": "k", "label": "संभावित मासिक कमाई का नुकसान" },
-      { "value": "1", "suffix": " / 3", "label": "वापसी यात्राएँ बिना लोड के" }
+      {
+        "value": "40",
+        "suffix": "%",
+        "label": "किलोमीटर खाली चलते हैं"
+      },
+      {
+        "value": "₹25",
+        "suffix": "k",
+        "label": "संभावित मासिक कमाई का नुकसान"
+      },
+      {
+        "value": "1",
+        "suffix": " / 3",
+        "label": "वापसी यात्राएँ बिना लोड के"
+      }
     ],
     "statsNote": "केवल उदाहरण के अनुमान · आँकड़ों की पुष्टि बाकी है",
     "problemLine": "अधिकतर ट्रक हर लोड अलग से चुनते हैं।",
@@ -244,27 +282,35 @@
     "features": [
       {
         "title": "पूरी यात्रा का मिलान",
-        "body": "जाना, लौटना और बीच के सभी चरण। कई लिस्टिंग नहीं, एक योजना।"
+        "body": "जाना, लौटना और बीच के सभी चरण। एक योजना, कई लिस्टिंग नहीं।"
       },
       {
         "title": "पहले और बाद की कमाई",
-        "body": "ट्रक निकलने से पहले देखें कि वापसी का लोड कमाई कैसे बढ़ाता है।"
+        "body": "ट्रक निकलने से पहले देखें कि वापसी का लोड कितना कमाएगा।"
       },
       {
-        "title": "WhatsApp पर अपडेट",
-        "body": "सही समय पर सही लोड, उसी ऐप पर जिसे आप पहले से इस्तेमाल करते हैं।"
+        "title": "WhatsApp-आधारित अनुभव",
+        "body": "WhatsApp पर लोड अलर्ट और पुष्टि — कोई नया ऐप नहीं, कोई नया लॉगिन नहीं।"
       },
       {
         "title": "सत्यापित शिपिंग साझेदार",
         "body": "शिपर की जाँच और भरोसे की रेटिंग, हर मिलान में विश्वास।"
       },
       {
-        "title": "फ्लीट की साफ़ तस्वीर",
-        "body": "जानें कौन से ट्रक चल रहे हैं, कहाँ जा रहे हैं और कितना कमा रहे हैं।"
+        "title": "लाइव फ्लीट डैशबोर्ड",
+        "body": "एक स्क्रीन पर सभी ट्रक देखें — कहाँ हैं, क्या ले जा रहे हैं, कितना कमा रहे हैं।"
       },
       {
         "title": "हिंदी या अंग्रेज़ी। आपकी पसंद।",
         "body": "आप और आपकी टीम अपनी पसंद की भाषा में काम करें।"
+      },
+      {
+        "title": "हर मिलान पर ₹1,500 तय",
+        "body": "कोई मासिक सदस्यता नहीं। कोई प्रतिशत कटौती नहीं। केवल सफल मिलान पर भुगतान।"
+      },
+      {
+        "title": "विवाद और भुगतान सहायता",
+        "body": "अंतर्निहित एस्केलेशन पथ और भुगतान ट्रैकिंग ताकि आप कभी भी पैसे का पीछा न करें।"
       }
     ],
     "calcLabel": "खाली किलोमीटर को काम पर लगाएँ",
@@ -299,28 +345,32 @@
     "faqTitle": "सफ़र शुरू करने से पहले।",
     "faqs": [
       {
-        "q": "यह BlackBuck से कैसे अलग है?",
-        "a": "TruckSaathi एक लोड की लिस्टिंग के बजाय पूरी यात्रा पर ध्यान देता है। लक्ष्य है रवाना होने से पहले वापसी का लोड तय करना और हर चरण की कमाई दिखाना। दूसरी कंपनियों की सुविधाएँ अलग हो सकती हैं।"
+        "q": "TruckSaathi और Porter में क्या अंतर है?",
+        "a": "Porter मुख्यतः एक शहर के भीतर डिलीवरी और शिफ्टिंग के लिए है। TruckSaathi लंबी दूरी के माल ढुलाई के लिए बना है — जैसे लुधियाना से दिल्ली और वापस। Porter अंतरशहरीय रिटर्न लोड की योजना नहीं बनाता।"
+      },
+      {
+        "q": "TruckSaathi और BlackBuck में क्या अंतर है?",
+        "a": "BlackBuck एक लोड मार्केटप्लेस है जहाँ आप लिस्टिंग-दर-लिस्टिंग खोजते हैं। TruckSaathi पूरी यात्रा की योजना बनाता है — आपके जाने से पहले ही वापसी का लोड तय हो जाता है।"
       },
       {
         "q": "शिपर पर भरोसा कैसे करें?",
-        "a": "सत्यापित शिपर और भरोसे की रेटिंग TruckSaathi की सुविधाओं का हिस्सा हैं। डेमो में अपने रूट के लिए जाँच, भुगतान की शर्तों और विवाद सहायता के बारे में पूछें।"
+        "a": "सत्यापित शिपर और भरोसे की रेटिंग TruckSaathi की सुविधाओं का हिस्सा हैं। डेमो में अपने रूट के लिए जाँच और भुगतान शर्तों के बारे में पूछें।"
       },
       {
         "q": "क्या नया स्मार्टफोन ऐप चाहिए?",
-        "a": "अलर्ट और पुष्टि के लिए अतिरिक्त ऐप की ज़रूरत नहीं है। TruckSaathi WhatsApp के आसपास बना है, हिंदी और अंग्रेज़ी सहायता के साथ।"
+        "a": "अलर्ट और पुष्टि के लिए अतिरिक्त ऐप की ज़रूरत नहीं है। TruckSaathi WhatsApp पर आधारित है।"
       },
       {
         "q": "इसकी कीमत क्या है?",
-        "a": "हर सफल मिलान पर ₹1,500 तय शुल्क। कोई मासिक सदस्यता और प्रतिशत कमीशन नहीं। डेमो में मिलान की शर्तें समझाएँगे।"
+        "a": "हर सफल मिलान पर ₹1,500 तय शुल्क। कोई मासिक शुल्क और प्रतिशत कमीशन नहीं।"
       },
       {
         "q": "कौन से रूट उपलब्ध हैं?",
-        "a": "यहाँ दिखाया लुधियाना–दिल्ली रूट केवल उदाहरण है। अपने फ्लीट की उपलब्धता जानने के लिए डेमो अनुरोध में शहर और नियमित रूट साझा करें।"
+        "a": "यहाँ दिखाया लुधियाना-दिल्ली रूट केवल उदाहरण है।"
       },
       {
         "q": "क्या पहले देख सकता हूँ?",
-        "a": "डेमो में पूरी यात्रा की उदाहरण योजना देखें और निर्णय से पहले रूट पर चर्चा करें। यह फॉर्म केवल प्रदर्शन है और कोई बुकिंग नहीं करता।"
+        "a": "डेमो में पूरी यात्रा की उदाहरण योजना देखें।"
       }
     ],
     "ctaLabel": "आपकी अगली यात्रा अलग हो सकती है",
@@ -345,6 +395,7 @@
     "contact": "संपर्क ईमेल जल्द उपलब्ध होगा",
     "menu": "नेविगेशन खोलें या बंद करें",
     "language": "Switch to English",
-    "km": "किमी"
+    "km": "किमी",
+    "compareSubtitle": "Porter शहर के अंदर की डिलीवरी करता है। BlackBuck लोड लिस्ट करता है। न तो पूरी यात्रा की योजना बनाता है।"
   }
 }

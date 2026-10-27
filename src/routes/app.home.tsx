@@ -1,5 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Bell, ClipboardList, House, UserRound } from "lucide-react";
+import {
+  Bell,
+  ClipboardList,
+  House,
+  UserRound,
+  TrendingUp,
+  Truck,
+  Package,
+  Clock,
+  Building2,
+  Zap,
+} from "lucide-react";
 
 import { getAppRole } from "@/data/app-copy";
 import { useAppLanguage } from "@/components/trucksaathi/app-language";
@@ -44,6 +55,90 @@ function WorkspaceHome() {
           </span>
           <h1>{role === "shipper" ? t.startTitleShipper : t.startTitleTransporter}</h1>
           <p>{t.startDescription}</p>
+        </section>
+
+        {/* Quick Stats */}
+        <section className="ts-home-stats">
+          <div className="ts-stat-card">
+            <div className="ts-stat-icon">
+              <TrendingUp size={20} />
+            </div>
+            <div>
+              <strong>{role === "shipper" ? "28" : "156"}</strong>
+              <small>
+                {role === "shipper"
+                  ? language === "en"
+                    ? "Bookings"
+                    : "बुकिंग"
+                  : language === "en"
+                    ? "Trips"
+                    : "यात्राएं"}
+              </small>
+            </div>
+          </div>
+          <div className="ts-stat-card">
+            <div className="ts-stat-icon">
+              <Truck size={20} />
+            </div>
+            <div>
+              <strong>{role === "shipper" ? "4.9" : "4.8"}</strong>
+              <small>{language === "en" ? "Rating" : "रेटिंग"}</small>
+            </div>
+          </div>
+          <div className="ts-stat-card">
+            <div className="ts-stat-icon">
+              <Package size={20} />
+            </div>
+            <div>
+              <strong>{role === "shipper" ? "₹4.2L" : "₹18.5K"}</strong>
+              <small>{language === "en" ? "This Month" : "इस महीने"}</small>
+            </div>
+          </div>
+        </section>
+
+        {/* Enterprise Banner */}
+        <section className="ts-enterprise-banner">
+          <div className="ts-enterprise-content">
+            <Building2 size={24} />
+            <div>
+              <h3>{language === "en" ? "Enterprise Solutions" : "एंटरप्राइज़ समाधान"}</h3>
+              <p>
+                {language === "en"
+                  ? "Bulk booking, API access, dedicated support"
+                  : "बल्क बुकिंग, API एक्सेस, समर्पित सहायता"}
+              </p>
+            </div>
+            <Zap size={20} className="ts-enterprise-icon" />
+          </div>
+        </section>
+
+        {/* Recent Activity */}
+        <section className="ts-recent-activity">
+          <h3>{language === "en" ? "Recent Activity" : "हाल की गतिविधि"}</h3>
+          <div className="ts-activity-item">
+            <div className="ts-activity-icon">
+              <Clock size={18} />
+            </div>
+            <div className="ts-activity-content">
+              <strong>{role === "shipper" ? "Load to Delhi" : "Delhi → Ludhiana"}</strong>
+              <small>{language === "en" ? "2 hours ago" : "2 घंटे पहले"}</small>
+            </div>
+            <span className="ts-activity-status ts-status-success">
+              {language === "en" ? "Completed" : "पूर्ण"}
+            </span>
+          </div>
+          <div className="ts-activity-item">
+            <div className="ts-activity-icon">
+              <Truck size={18} />
+            </div>
+            <div className="ts-activity-content">
+              <strong>{role === "shipper" ? "Load to Jaipur" : "Jaipur → Delhi"}</strong>
+              <small>{language === "en" ? "Yesterday" : "कल"}</small>
+            </div>
+            <span className="ts-activity-status ts-status-success">
+              {language === "en" ? "Completed" : "पूर्ण"}
+            </span>
+          </div>
         </section>
         {role === "shipper" ? (
           <Link className="ts-primary-button ts-workspace-action" to="/app/shipper/load-type">

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { ArrowLeft, MapPin, Snowflake, Truck } from "lucide-react";
+import { ArrowLeft, MapPin, Snowflake, Truck, Clock, CheckCircle2, XCircle } from "lucide-react";
 
 import { AppTabs } from "@/components/trucksaathi/app-tabs";
 import { useAppLanguage } from "@/components/trucksaathi/app-language";
@@ -135,6 +135,10 @@ function OffersScreen() {
                         {truck.type} · {truck.capacity} t · {truck.driver}
                       </small>
                     </span>
+                    <div className="ts-truck-status">
+                      <span className="ts-status-dot ts-status-online" />
+                      <small>{language === "en" ? "Online" : "ऑनलाइन"}</small>
+                    </div>
                     <span className="ts-truck-match-count">
                       {offers.length
                         ? `${offers.length} ${offers.length === 1 ? t.matchSingle : t.match}`

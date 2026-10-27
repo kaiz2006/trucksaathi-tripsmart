@@ -9,6 +9,7 @@ import {
   ShieldCheck,
   Snowflake,
   Truck,
+  Zap,
 } from "lucide-react";
 
 import { useAppLanguage } from "@/components/trucksaathi/app-language";
@@ -32,7 +33,7 @@ type Draft = {
   tempMin: number;
   tempMax: number;
   cargoKind: string;
-  insured: boolean;
+  insured: "none" | "basic" | "premium";
   permit: string;
   bulkMode: string;
   loadingHelp: boolean;
@@ -73,7 +74,7 @@ const initialDraft: Draft = {
   tempMin: 2,
   tempMax: 8,
   cargoKind: "Dairy",
-  insured: false,
+  insured: "none",
   permit: "",
   bulkMode: "Loose",
   loadingHelp: false,
@@ -88,6 +89,13 @@ const initialDraft: Draft = {
   selectedMatchId: "",
   matches: [],
   tripId: "",
+};
+
+// Helper to get min datetime string for date inputs
+const getMinDateTime = () => {
+  const now = new Date();
+  now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+  return now.toISOString().slice(0, 16);
 };
 
 export const Route = createFileRoute("/app/shipper/new/$step")({
@@ -197,12 +205,26 @@ function ShipperJourney() {
       setError(t.routeError);
       return;
     }
-    if (
-      currentStep === "schedule" &&
-      (!draft.pickupDate || !draft.deliveryDate || draft.deliveryDate < draft.pickupDate)
-    ) {
-      setError(t.dateError);
-      return;
+    if (currentStep === "schedule") {
+      if (!draft.pickupDate || !draft.deliveryDate) {
+        setError(t.dateError);
+        return;
+      }
+      if (draft.deliveryDate < draft.pickupDate) {
+        setError(t.dateError);
+        return;
+      }
+      // Check if dates are in the past
+      const now = new Date();
+      const pickup = new Date(draft.pickupDate);
+      if (pickup < now) {
+        setError(
+          language === "en"
+            ? "Pickup date cannot be in the past."
+            : "पिकअप तारीख भूतकाल में नहीं हो सकती।",
+        );
+        return;
+      }
     }
     if (currentStep === "review") {
       const pickupCity = northCities.find((city) => city.name === draft.pickup);
@@ -328,6 +350,14 @@ function ShipperJourney() {
       );
       return;
     }
+    if (!draft.selectedTruckId) {
+      setError(
+        language === "en"
+          ? "Please select a truck to confirm your booking."
+          : "बुकिंग की पुष्टि के लिए एक ट्रक चुनें।",
+      );
+      return;
+    }
     try {
       const trip = await apiPost<{ id: string }>("/trips", {
         loadId: draft.loadRecordId,
@@ -345,7 +375,8 @@ function ShipperJourney() {
         params: { step: "confirmed" },
         search: { loadType: draft.loadType },
       });
-    } catch {
+    } catch (error) {
+      console.error("Booking error:", error);
       setError(
         language === "en"
           ? "Booking could not be confirmed. Please try again."
@@ -466,6 +497,51 @@ function ShipperJourney() {
                   </label>
                 ))}
               </fieldset>
+
+              {/* Insurance Option */}
+              <div className="ts-insurance-section">
+                <label className="ts-field-label">{t.insurance || "Cargo Insurance"}</label>
+                <div className="ts-insurance-options">
+                  <label className="ts-insurance-option">
+                    <input
+                      type="radio"
+                      name="insurance"
+                      checked={draft.insured === "none"}
+                      onChange={() => update("insured", "none")}
+                    />
+                    <div className="ts-insurance-content">
+                      <strong>{language === "en" ? "No Insurance" : "बीमा नहीं"}</strong>
+                      <small>{language === "en" ? "At your own risk" : "अपने जोखिम पर"}</small>
+                    </div>
+                  </label>
+                  <label className="ts-insurance-option">
+                    <input
+                      type="radio"
+                      name="insurance"
+                      checked={draft.insured === "basic"}
+                      onChange={() => update("insured", "basic")}
+                    />
+                    <div className="ts-insurance-content">
+                      <strong>{language === "en" ? "Basic Cover" : "बेसिक कवर"}</strong>
+                      <small>{language === "en" ? "Up to ₹5L coverage" : "₹5 लाख तक कवरेज"}</small>
+                    </div>
+                  </label>
+                  <label className="ts-insurance-option">
+                    <input
+                      type="radio"
+                      name="insurance"
+                      checked={draft.insured === "premium"}
+                      onChange={() => update("insured", "premium")}
+                    />
+                    <div className="ts-insurance-content">
+                      <strong>{language === "en" ? "Premium Cover" : "प्रीमियम कवर"}</strong>
+                      <small>
+                        {language === "en" ? "Up to ₹10L coverage" : "₹10 लाख तक कवरेज"}
+                      </small>
+                    </div>
+                  </label>
+                </div>
+              </div>
               {isTemperatureSensitive && (
                 <div className="ts-form-group">
                   <span className="ts-field-label">{t.temperature}</span>
@@ -484,40 +560,90 @@ function ShipperJourney() {
                   <label className="ts-field-label" htmlFor="ts-temp-min">
                     {t.customTemp}: {draft.tempMin}°C – {draft.tempMax}°C
                   </label>
-                  <input
-                    id="ts-temp-min"
-                    type="range"
-                    min="-25"
-                    max={draft.tempMax}
-                    value={draft.tempMin}
-                    aria-label={`Minimum temperature ${draft.tempMin} degrees Celsius`}
-                    onChange={(event) => {
-                      const next = {
-                        ...draft,
-                        temperature: "Custom",
-                        tempMin: Number(event.target.value),
-                      };
-                      setDraft(next);
-                      sessionStorage.setItem("trucksaathi.shipper.draft", JSON.stringify(next));
-                    }}
-                  />
-                  <input
-                    id="ts-temp-max"
-                    type="range"
-                    min={draft.tempMin}
-                    max="15"
-                    value={draft.tempMax}
-                    aria-label={`Maximum temperature ${draft.tempMax} degrees Celsius`}
-                    onChange={(event) => {
-                      const next = {
-                        ...draft,
-                        temperature: "Custom",
-                        tempMax: Number(event.target.value),
-                      };
-                      setDraft(next);
-                      sessionStorage.setItem("trucksaathi.shipper.draft", JSON.stringify(next));
-                    }}
-                  />
+                  <div className="ts-input-with-slider">
+                    <input
+                      id="ts-temp-min-input"
+                      type="number"
+                      min="-25"
+                      max={draft.tempMax}
+                      value={draft.tempMin}
+                      onChange={(event) => {
+                        const value = Math.min(
+                          draft.tempMax,
+                          Math.max(-25, Number(event.target.value) || -25),
+                        );
+                        const next = {
+                          ...draft,
+                          temperature: "Custom",
+                          tempMin: value,
+                        };
+                        setDraft(next);
+                        sessionStorage.setItem("trucksaathi.shipper.draft", JSON.stringify(next));
+                      }}
+                      className="ts-field-input ts-capacity-input"
+                      aria-label={`Minimum temperature ${draft.tempMin} degrees Celsius`}
+                    />
+                    <input
+                      id="ts-temp-min"
+                      type="range"
+                      min="-25"
+                      max={draft.tempMax}
+                      value={draft.tempMin}
+                      aria-label={`Minimum temperature ${draft.tempMin} degrees Celsius`}
+                      onChange={(event) => {
+                        const next = {
+                          ...draft,
+                          temperature: "Custom",
+                          tempMin: Number(event.target.value),
+                        };
+                        setDraft(next);
+                        sessionStorage.setItem("trucksaathi.shipper.draft", JSON.stringify(next));
+                      }}
+                      className="ts-capacity-slider"
+                    />
+                  </div>
+                  <div className="ts-input-with-slider">
+                    <input
+                      id="ts-temp-max-input"
+                      type="number"
+                      min={draft.tempMin}
+                      max="15"
+                      value={draft.tempMax}
+                      onChange={(event) => {
+                        const value = Math.min(
+                          15,
+                          Math.max(draft.tempMin, Number(event.target.value) || draft.tempMin),
+                        );
+                        const next = {
+                          ...draft,
+                          temperature: "Custom",
+                          tempMax: value,
+                        };
+                        setDraft(next);
+                        sessionStorage.setItem("trucksaathi.shipper.draft", JSON.stringify(next));
+                      }}
+                      className="ts-field-input ts-capacity-input"
+                      aria-label={`Maximum temperature ${draft.tempMax} degrees Celsius`}
+                    />
+                    <input
+                      id="ts-temp-max"
+                      type="range"
+                      min={draft.tempMin}
+                      max="15"
+                      value={draft.tempMax}
+                      aria-label={`Maximum temperature ${draft.tempMax} degrees Celsius`}
+                      onChange={(event) => {
+                        const next = {
+                          ...draft,
+                          temperature: "Custom",
+                          tempMax: Number(event.target.value),
+                        };
+                        setDraft(next);
+                        sessionStorage.setItem("trucksaathi.shipper.draft", JSON.stringify(next));
+                      }}
+                      className="ts-capacity-slider"
+                    />
+                  </div>
                   <label className="ts-field-label" htmlFor="ts-kind">
                     {t.cargoKind}
                   </label>
@@ -649,6 +775,7 @@ function ShipperJourney() {
                 id="ts-pickup-date"
                 type="datetime-local"
                 value={draft.pickupDate}
+                min={getMinDateTime()}
                 onChange={(event) => update("pickupDate", event.target.value)}
               />
               <label className="ts-field-label" htmlFor="ts-delivery-date">
@@ -659,6 +786,7 @@ function ShipperJourney() {
                 id="ts-delivery-date"
                 type="datetime-local"
                 value={draft.deliveryDate}
+                min={draft.pickupDate || getMinDateTime()}
                 onChange={(event) => update("deliveryDate", event.target.value)}
               />
               <div className="ts-segmented" role="group" aria-label="Delivery flexibility">
@@ -728,6 +856,10 @@ function ShipperJourney() {
                   {matchedPrice.toLocaleString("en-IN")}
                 </strong>
                 <small>{t.priceNote}</small>
+                <div className="ts-ai-indicator">
+                  <Zap size={14} />
+                  {language === "en" ? "AI Optimized Price" : "AI अनुकूलित मूल्य"}
+                </div>
               </div>
             </section>
             <StickyAction label={t.book} error={error} onClick={() => moveTo("matches")} />

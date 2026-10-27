@@ -4,8 +4,12 @@ import {
   BarChart3,
   Check,
   CheckCheck,
+  CreditCard,
+  Headphones,
   Languages,
+  LayoutDashboard,
   MessageCircle,
+  MessageSquare,
   Route,
   ShieldCheck,
   Truck,
@@ -168,6 +172,7 @@ export function Comparison({ t }: { t: Copy }) {
         <div className="section-heading">
           <span className="eyebrow">{t.compareLabel}</span>
           <h2>{t.compareTitle}</h2>
+          {t.compareSubtitle && <p className="compare-subtitle">{t.compareSubtitle}</p>}
           <TruckIllustration />
         </div>
         <div>
@@ -177,6 +182,10 @@ export function Comparison({ t }: { t: Copy }) {
               <strong>
                 <Route size={17} />
                 {t.comparisonBrand}
+                <span className="whatsapp-badge">
+                  <MessageSquare size={11} />
+                  WhatsApp
+                </span>
               </strong>
             </div>
             {t.comparison.map((row, i) => (
@@ -199,7 +208,16 @@ export function Comparison({ t }: { t: Copy }) {
   );
 }
 export function Features({ t }: { t: Copy }) {
-  const icons = [Route, TrendingUp, MessageCircle, ShieldCheck, BarChart3, Languages];
+  const icons = [
+    Route,
+    TrendingUp,
+    MessageSquare,
+    ShieldCheck,
+    LayoutDashboard,
+    Languages,
+    CreditCard,
+    Headphones,
+  ];
   return (
     <section className="section features-section" id="features">
       <div className="container">
@@ -207,7 +225,7 @@ export function Features({ t }: { t: Copy }) {
           <span className="eyebrow">{t.featuresLabel}</span>
           <h2>{t.featuresTitle}</h2>
         </div>
-        <div className="features-grid">
+        <div className="features-grid features-grid-8">
           {t.features.map((feature, i) => {
             const Icon = icons[i] ?? Route;
             return (

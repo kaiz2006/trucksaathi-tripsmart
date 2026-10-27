@@ -119,14 +119,22 @@ select:focus-visible {
   }
 }
 
-/* Dark mode with better contrast */
+/* Dark mode with better contrast — keep background light so card/section colors stay predictable */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: oklch(0.175 0.017 252);
-    --foreground: oklch(0.99 0.003 85);
+    --background: oklch(0.14 0.016 252);
+    --foreground: oklch(0.96 0.004 85);
     --primary: oklch(0.72 0.165 56);
     --primary-foreground: oklch(0.98 0.005 85);
+    --secondary: oklch(0.19 0.018 252);
+    --secondary-foreground: oklch(0.96 0.004 85);
     --muted-foreground: oklch(0.65 0.016 250);
+    --border: oklch(0.32 0.016 252);
+    --card: oklch(0.2 0.018 252);
+    --amber-wash: oklch(0.22 0.025 60);
+    --amber-ink: oklch(0.82 0.12 65);
+    --success-wash: oklch(0.2 0.04 160);
+    --success-dark: oklch(0.6 0.13 160);
   }
 }
 h1,
@@ -710,6 +718,7 @@ p {
   font-weight: 600;
   line-height: 1.2;
   font-family: var(--font-display);
+  color: var(--foreground);
 }
 .stat-value > span:last-child {
   color: var(--amber-ink);
@@ -805,8 +814,29 @@ p {
   color: var(--muted-foreground);
   max-width: 300px;
 }
+.step h3 {
+  color: var(--foreground);
+}
 .comparison-section {
   background: var(--secondary);
+  color: var(--foreground);
+}
+/* How It Works, Features, FAQ, Pricing — light background sections */
+.how-section {
+  background: var(--background);
+  color: var(--foreground);
+}
+.features-section {
+  background: var(--background);
+  color: var(--foreground);
+}
+.faq-section {
+  background: var(--background);
+  color: var(--foreground);
+}
+.pricing-section {
+  background: var(--background);
+  color: var(--foreground);
 }
 .comparison-layout {
   display: grid;
@@ -819,6 +849,30 @@ p {
 }
 .comparison-layout h2 {
   font-size: 34px;
+}
+.compare-subtitle {
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--muted-foreground);
+  max-width: 310px;
+  line-height: 1.7;
+}
+.whatsapp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+  font-size: 9px;
+  font-weight: 500;
+  padding: 3px 7px;
+  background: oklch(0.38 0.12 145 / 0.25);
+  color: oklch(0.7 0.12 145);
+  border-radius: 10px;
+  letter-spacing: 0.3px;
+}
+/* 4-column grid for 8 feature cards */
+.features-grid-8 {
+  grid-template-columns: repeat(4, 1fr);
 }
 .truck-illustration {
   width: 230px;
@@ -905,6 +959,7 @@ p {
   border-left: 1px solid var(--border);
   font-weight: 500;
   background: var(--amber-wash);
+  color: var(--foreground);
 }
 .comparison-row svg {
   color: var(--success-dark);
@@ -928,13 +983,17 @@ p {
   padding: 30px 26px;
   border: 1px solid var(--border);
   border-radius: 6px;
+  background: var(--card);
+  color: var(--foreground);
   transition:
     transform 0.25s,
-    border-color 0.25s;
+    border-color 0.25s,
+    box-shadow 0.25s;
 }
 .feature-card:hover {
   transform: translateY(-4px);
   border-color: var(--primary);
+  box-shadow: 0 8px 28px color-mix(in oklch, var(--primary) 15%, transparent);
 }
 .feature-icon {
   color: var(--amber-ink);
@@ -949,6 +1008,7 @@ p {
 }
 .feature-card h3 {
   font-size: 17px;
+  color: var(--foreground);
 }
 .feature-card p {
   font-size: 12px;
@@ -1108,12 +1168,14 @@ input[type="range"] {
   border-radius: 6px;
   padding: 38px;
   background: var(--card);
+  color: var(--foreground);
 }
 .pricing-amount {
   font-family: var(--font-display);
   font-size: 56px;
   font-weight: 600;
   line-height: 1.15;
+  color: var(--foreground);
 }
 .price-unit {
   color: var(--muted-foreground);
@@ -1125,6 +1187,7 @@ input[type="range"] {
   margin-top: 25px;
   padding-bottom: 22px;
   border-bottom: 1px solid var(--border);
+  color: var(--foreground);
 }
 .pricing-card ul {
   list-style: none;
@@ -1137,6 +1200,7 @@ input[type="range"] {
   gap: 10px;
   font-size: 12px;
   margin-top: 14px;
+  color: var(--foreground);
 }
 .pricing-card li svg {
   color: var(--success-dark);
@@ -1648,7 +1712,8 @@ blockquote {
   .comparison-layout h2 {
     font-size: 34px;
   }
-  .features-grid {
+  .features-grid,
+  .features-grid-8 {
     grid-template-columns: repeat(2, 1fr);
   }
   .pricing-layout {
@@ -1911,8 +1976,10 @@ blockquote {
   .comparison-row svg {
     width: 14px;
   }
-  .features-grid {
+  .features-grid,
+  .features-grid-8 {
     gap: 12px;
+    grid-template-columns: 1fr 1fr;
   }
   .feature-card {
     padding: 22px 16px;

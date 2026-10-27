@@ -124,7 +124,9 @@ html[data-theme="light"] .ts-track-page {
   border-radius: 10px;
   color: var(--primary);
   background: var(--hero-panel);
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .ts-brand:hover .ts-brand-mark {
@@ -157,7 +159,9 @@ html[data-theme="light"] .ts-track-page {
   color: inherit;
   cursor: pointer;
   border-radius: 8px;
-  transition: background 0.2s ease, transform 0.15s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -821,7 +825,9 @@ html[data-theme="light"] .ts-track-page {
   color: var(--hero-ink);
   font: inherit;
   font-size: clamp(14px, 3vw, 16px);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .ts-field-input:hover {
@@ -1281,6 +1287,337 @@ html[data-theme="light"] .ts-track-page {
   font-family: var(--font-sans);
   font-size: 12px;
   font-weight: 400;
+}
+.ts-input-with-slider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.ts-capacity-input {
+  width: 80px;
+  padding: 8px 12px;
+  border: 2px solid var(--hero-line);
+  border-radius: 8px;
+  background: var(--hero);
+  color: var(--hero-ink);
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  flex-shrink: 0;
+}
+.ts-capacity-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--primary) 20%, transparent);
+}
+.ts-capacity-slider {
+  flex: 1;
+  height: 8px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--hero-line);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.ts-capacity-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--primary);
+  cursor: pointer;
+  box-shadow: 0 2px 8px color-mix(in oklch, var(--hero-ink) 20%, transparent);
+  transition: transform 0.2s ease;
+}
+.ts-capacity-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+.ts-capacity-slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--primary);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 8px color-mix(in oklch, var(--hero-ink) 20%, transparent);
+  transition: transform 0.2s ease;
+}
+.ts-capacity-slider::-moz-range-thumb:hover {
+  transform: scale(1.1);
+}
+.ts-capacity-slider:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+.ts-range-row-with-input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--hero-panel);
+  margin-bottom: 12px;
+}
+.ts-range-row-with-input label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--hero-ink);
+}
+.ts-fleet-inputs {
+  margin-bottom: 0;
+}
+.ts-fleet-input {
+  width: 70px;
+  font-size: 14px;
+}
+
+/* Insurance Section */
+.ts-insurance-section {
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--hero-panel);
+}
+.ts-insurance-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ts-insurance-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  background: var(--hero);
+  border: 2px solid var(--hero-line);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.ts-insurance-option:hover {
+  border-color: var(--hero-muted);
+}
+.ts-insurance-option input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+.ts-insurance-option input[type="radio"]:checked + .ts-insurance-content {
+  color: var(--primary);
+}
+.ts-insurance-content {
+  flex: 1;
+}
+.ts-insurance-content strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--hero-ink);
+}
+.ts-insurance-content small {
+  display: block;
+  font-size: 12px;
+  color: var(--hero-muted);
+  margin-top: 2px;
+}
+
+/* AI Price Indicator */
+.ts-ai-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: color-mix(in oklch, var(--primary) 10%, var(--hero-panel));
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.ts-ai-indicator svg {
+  animation: ts-pulse 2s ease-in-out infinite;
+}
+@keyframes ts-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Status Indicators */
+.ts-truck-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.ts-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: ts-pulse 2s ease-in-out infinite;
+}
+.ts-status-online {
+  background: var(--success);
+}
+.ts-status-offline {
+  background: var(--hero-muted);
+}
+.ts-status-busy {
+  background: var(--warning);
+}
+
+/* Home Stats */
+.ts-home-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 20px 0;
+}
+.ts-stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 12px;
+  border-radius: 12px;
+  background: var(--hero-panel);
+  text-align: center;
+}
+.ts-stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: color-mix(in oklch, var(--primary) 10%, var(--hero));
+  color: var(--primary);
+}
+.ts-stat-card strong {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--hero-ink);
+}
+.ts-stat-card small {
+  display: block;
+  font-size: 11px;
+  color: var(--hero-muted);
+  margin-top: 2px;
+}
+
+/* Enterprise Banner */
+.ts-enterprise-banner {
+  margin: 20px 0;
+  padding: 16px;
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklch, var(--primary) 15%, var(--hero-panel)),
+    var(--hero-panel)
+  );
+  border: 1px solid color-mix(in oklch, var(--primary) 30%, var(--hero-line));
+}
+.ts-enterprise-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.ts-enterprise-content > div {
+  flex: 1;
+}
+.ts-enterprise-content h3 {
+  margin: 0 0 4px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--hero-ink);
+}
+.ts-enterprise-content p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--hero-muted);
+  line-height: 1.4;
+}
+.ts-enterprise-icon {
+  color: var(--primary);
+  animation: ts-pulse 2s ease-in-out infinite;
+}
+
+/* Recent Activity */
+.ts-recent-activity {
+  margin: 20px 0;
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--hero-panel);
+}
+.ts-recent-activity h3 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--hero-ink);
+}
+.ts-activity-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  background: var(--hero);
+}
+.ts-activity-item:last-child {
+  margin-bottom: 0;
+}
+.ts-activity-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: color-mix(in oklch, var(--primary) 10%, var(--hero-panel));
+  color: var(--primary);
+}
+.ts-activity-content {
+  flex: 1;
+  min-width: 0;
+}
+.ts-activity-content strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--hero-ink);
+}
+.ts-activity-content small {
+  display: block;
+  font-size: 11px;
+  color: var(--hero-muted);
+  margin-top: 2px;
+}
+.ts-activity-status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.ts-status-success {
+  background: color-mix(in oklch, var(--success) 15%, var(--hero-panel));
+  color: var(--success);
+}
+.ts-status-pending {
+  background: color-mix(in oklch, var(--warning) 15%, var(--hero-panel));
+  color: var(--warning);
 }
 .ts-range-row {
   display: grid;
@@ -2081,6 +2418,123 @@ html[data-theme="light"] .ts-track-page {
 }
 .ts-role-switch svg:last-child {
   margin-left: auto;
+}
+
+/* Profile Features Section */
+.ts-profile-features {
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--hero-panel);
+}
+.ts-profile-features h3 {
+  margin: 0 0 16px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--hero-ink);
+}
+.ts-feature-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  background: var(--hero);
+  border: 1px solid var(--hero-line);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.ts-feature-card:last-child {
+  margin-bottom: 0;
+}
+.ts-feature-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px color-mix(in oklch, var(--hero-ink) 10%, transparent);
+}
+.ts-feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: color-mix(in oklch, var(--primary) 10%, var(--hero-panel));
+  color: var(--primary);
+}
+.ts-feature-content {
+  flex: 1;
+  min-width: 0;
+}
+.ts-feature-content h4 {
+  margin: 0 0 4px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--hero-ink);
+}
+.ts-feature-content p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--hero-muted);
+  line-height: 1.4;
+}
+.ts-feature-badge {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: color-mix(in oklch, var(--primary) 15%, var(--hero-panel));
+  color: var(--primary);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.ts-badge-green {
+  background: color-mix(in oklch, var(--success) 15%, var(--hero-panel));
+  color: var(--success);
+}
+.ts-feature-arrow {
+  flex-shrink: 0;
+  color: var(--hero-muted);
+}
+
+/* Profile Stats Section */
+.ts-profile-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--hero-panel);
+}
+.ts-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 10px;
+  background: var(--hero);
+  text-align: center;
+}
+.ts-stat-item svg {
+  color: var(--primary);
+}
+.ts-stat-item strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--hero-ink);
+}
+.ts-stat-item small {
+  display: block;
+  font-size: 11px;
+  color: var(--hero-muted);
+  margin-top: 2px;
 }
 @keyframes ts-loading {
   to {

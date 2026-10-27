@@ -35,7 +35,12 @@ function AvailabilityWizard() {
   const [selected, setSelected] = useState<string[]>(
     isFleet ? ["truck-1", "truck-2"] : ["truck-1"],
   );
-  const [dates, setDates] = useState({ from: "2026-10-12", to: "2026-10-16" });
+
+  // Set min date to today in YYYY-MM-DD format
+  const today = new Date();
+  const minDate = today.toISOString().split("T")[0];
+
+  const [dates, setDates] = useState({ from: minDate, to: minDate });
   const [city, setCity] = useState("Ludhiana");
   const [radius, setRadius] = useState(350);
   const [preferred, setPreferred] = useState<string[]>(["Delhi"]);
@@ -114,9 +119,27 @@ function AvailabilityWizard() {
   }
 
   async function continueFlow() {
-    if (step === 0 && (!dates.from || !dates.to || dates.to < dates.from)) {
-      setError(t.dateRequired);
-      return;
+    if (step === 0) {
+      if (!dates.from || !dates.to) {
+        setError(t.dateRequired);
+        return;
+      }
+      if (dates.to < dates.from) {
+        setError(t.dateRequired);
+        return;
+      }
+      // Check if dates are in the past
+      const now = new Date();
+      now.setHours(0, 0, 0, 0);
+      const fromDate = new Date(dates.from);
+      if (fromDate < now) {
+        setError(
+          language === "en"
+            ? "Available from date cannot be in the past."
+            : "उपलब्धता तारीख भूतकाल में नहीं हो सकती।",
+        );
+        return;
+      }
     }
     if (step === 1 && !city) {
       setError(t.cityRequired);
@@ -238,6 +261,7 @@ function AvailabilityWizard() {
               id="ts-available-from"
               type="date"
               value={dates.from}
+              min={minDate}
               onChange={(event) => setDates({ ...dates, from: event.target.value })}
             />
             <label className="ts-field-label" htmlFor="ts-available-to">
@@ -248,7 +272,7 @@ function AvailabilityWizard() {
               id="ts-available-to"
               type="date"
               value={dates.to}
-              min={dates.from}
+              min={dates.from || minDate}
               onChange={(event) => setDates({ ...dates, to: event.target.value })}
             />
             {isFleet && (
@@ -283,15 +307,31 @@ function AvailabilityWizard() {
             <label className="ts-field-label" htmlFor="ts-radius">
               {t.radius}: {radius} km
             </label>
-            <input
-              id="ts-radius"
-              type="range"
-              min="25"
-              max="800"
-              step="25"
-              value={radius}
-              onChange={(event) => setRadius(Number(event.target.value))}
-            />
+            <div className="ts-input-with-slider">
+              <input
+                id="ts-radius-input"
+                type="number"
+                min="25"
+                max="800"
+                step="25"
+                value={radius}
+                onChange={(event) => {
+                  const value = Math.min(800, Math.max(25, Number(event.target.value) || 25));
+                  setRadius(value);
+                }}
+                className="ts-field-input ts-capacity-input"
+              />
+              <input
+                id="ts-radius"
+                type="range"
+                min="25"
+                max="800"
+                step="25"
+                value={radius}
+                onChange={(event) => setRadius(Number(event.target.value))}
+                className="ts-capacity-slider"
+              />
+            </div>
             <ChipSelector
               label={t.preferred}
               values={suggestedDestinations}
@@ -341,38 +381,73 @@ function AvailabilityWizard() {
             <label className="ts-field-label" htmlFor="ts-space">
               {t.percent}: {capacityPercent}%
             </label>
-            <input
-              id="ts-space"
-              type="range"
-              min="10"
-              max="100"
-              step="5"
-              value={capacityPercent}
-              onChange={(event) => setCapacityPercent(Number(event.target.value))}
-            />
+            <div className="ts-input-with-slider">
+              <input
+                id="ts-space-input"
+                type="number"
+                min="10"
+                max="100"
+                step="5"
+                value={capacityPercent}
+                onChange={(event) => {
+                  const value = Math.min(100, Math.max(10, Number(event.target.value) || 10));
+                  setCapacityPercent(value);
+                }}
+                className="ts-field-input ts-capacity-input"
+              />
+              <input
+                id="ts-space"
+                type="range"
+                min="10"
+                max="100"
+                step="5"
+                value={capacityPercent}
+                onChange={(event) => setCapacityPercent(Number(event.target.value))}
+                className="ts-capacity-slider"
+              />
+            </div>
             <div className="ts-capacity-readout">
               {Math.round(((selectedTrucks[0]?.capacity ?? capacity) * capacityPercent) / 100)} t{" "}
               <small>{t.tons}</small>
             </div>
             {isFleet &&
               selectedTrucks.map((truck) => (
-                <label className="ts-range-row" key={truck.id}>
-                  {truck.registration} · {capacityByTruck[truck.id] ?? capacityPercent}%
-                  <input
-                    type="range"
-                    min="10"
-                    max="100"
-                    step="5"
-                    value={capacityByTruck[truck.id] ?? capacityPercent}
-                    aria-label={`${t.space} ${truck.registration}`}
-                    onChange={(event) =>
-                      setCapacityByTruck((currentValues) => ({
-                        ...currentValues,
-                        [truck.id]: Number(event.target.value),
-                      }))
-                    }
-                  />
-                </label>
+                <div className="ts-range-row-with-input" key={truck.id}>
+                  <label>{truck.registration}</label>
+                  <div className="ts-input-with-slider ts-fleet-inputs">
+                    <input
+                      type="number"
+                      min="10"
+                      max="100"
+                      step="5"
+                      value={capacityByTruck[truck.id] ?? capacityPercent}
+                      onChange={(event) => {
+                        const value = Math.min(100, Math.max(10, Number(event.target.value) || 10));
+                        setCapacityByTruck((currentValues) => ({
+                          ...currentValues,
+                          [truck.id]: value,
+                        }));
+                      }}
+                      className="ts-field-input ts-capacity-input ts-fleet-input"
+                      aria-label={`${t.space} ${truck.registration} percentage`}
+                    />
+                    <input
+                      type="range"
+                      min="10"
+                      max="100"
+                      step="5"
+                      value={capacityByTruck[truck.id] ?? capacityPercent}
+                      aria-label={`${t.space} ${truck.registration}`}
+                      onChange={(event) =>
+                        setCapacityByTruck((currentValues) => ({
+                          ...currentValues,
+                          [truck.id]: Number(event.target.value),
+                        }))
+                      }
+                      className="ts-capacity-slider"
+                    />
+                  </div>
+                </div>
               ))}
           </section>
         )}
@@ -472,14 +547,29 @@ function AvailabilityWizard() {
             <label className="ts-field-label" htmlFor="ts-rate">
               {t.minimumRate}: ₹{minimumRate}
             </label>
-            <input
-              id="ts-rate"
-              type="range"
-              min="10"
-              max="100"
-              value={minimumRate}
-              onChange={(event) => setMinimumRate(Number(event.target.value))}
-            />
+            <div className="ts-input-with-slider">
+              <input
+                id="ts-rate-input"
+                type="number"
+                min="10"
+                max="100"
+                value={minimumRate}
+                onChange={(event) => {
+                  const value = Math.min(100, Math.max(10, Number(event.target.value) || 10));
+                  setMinimumRate(value);
+                }}
+                className="ts-field-input ts-capacity-input"
+              />
+              <input
+                id="ts-rate"
+                type="range"
+                min="10"
+                max="100"
+                value={minimumRate}
+                onChange={(event) => setMinimumRate(Number(event.target.value))}
+                className="ts-capacity-slider"
+              />
+            </div>
             <label className="ts-toggle-row">
               <input
                 type="checkbox"
